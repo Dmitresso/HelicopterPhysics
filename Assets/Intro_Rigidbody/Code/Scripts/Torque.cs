@@ -1,21 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using IndiePixel;
 
-public class Torque : IP_BaseRB_Controller
-{
+public class Torque : MonoBehaviour {
     #region Varaibles
     public float torqueSpeed = 2f;
     public Vector3 rotationDirection = new Vector3(0f, 1f, 0f);
+
+    private Rigidbody rb;
     #endregion
 
 
+
+    #region Builtin Methods
+    private void Start() {
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+    private void Update() {
+        if (rb) HandlePhysics(rotationDirection, torqueSpeed);
+    }
+
+    #endregion
+    
+    
+    
     #region Custom Methods
-    protected override void HandlePhysics()
-    {
-        Vector3 wantedTorque = Vector3.up * torqueSpeed;
-        rb.AddTorque(wantedTorque);
+    protected void HandlePhysics(Vector3 torque, float speed) {
+        rb.AddTorque(torque * speed);
     }
     #endregion
 }

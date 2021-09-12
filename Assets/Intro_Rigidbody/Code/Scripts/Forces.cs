@@ -20,8 +20,7 @@ public class Forces : MonoBehaviour {
 
 
     private void FixedUpdate() {
-        if (!rb) return;
-        HandlePhysics(movementDirection, maxSpeed);
+        if (rb) HandlePhysics(movementDirection, maxSpeed);
     }
     #endregion
     
