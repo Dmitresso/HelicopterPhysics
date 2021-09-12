@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Hover : MonoBehaviour
-{
+
+public class Hover : MonoBehaviour {
     #region Variables
     [Header("Hover Properties")]
     public float hoverHeight = 3f;
@@ -14,24 +12,19 @@ public class Hover : MonoBehaviour
     private Rigidbody rb;
     private float weight;
     private float currentGroundDistance;
+    private string groundTag = "Ground";
     #endregion
 
+    
+    
     #region BuiltIn Methods
-    // Use this for initialization
-    void Start ()
-    {
+    void Start () {
         rb = GetComponent<Rigidbody>();
-        if(rb)
-        {
-            weight = rb.mass * Physics.gravity.magnitude;
-        }
-	}
+        if(rb) weight = rb.mass * Physics.gravity.magnitude;
+    }
 	
-	// Update is called once per frame
-	void FixedUpdate ()
-    {
-		if(rb && hoverPosition)
-        {
+	void FixedUpdate () {
+		if(rb && hoverPosition) {
             CalculateGroundDistance();
             HandleHoverForce();
             HandleTorque();
@@ -40,36 +33,31 @@ public class Hover : MonoBehaviour
 	}
     #endregion
 
+    
 
     #region Custom Methods
-    void CalculateGroundDistance()
-    {
+    void CalculateGroundDistance() {
         Ray hoverRay = new Ray(hoverPosition.position, Vector3.down);
         Debug.DrawRay(hoverPosition.position, hoverRay.direction, Color.red);
         RaycastHit hit;
-        if(Physics.Raycast(hoverRay, out hit, 100f))
-        {
-            if(hit.transform.tag == "ground")
-            {
-                currentGroundDistance = hit.distance;
-            }
-        }
+        if(Physics.Raycast(hoverRay, out hit, 100f)) 
+            if(hit.transform.CompareTag(groundTag)) currentGroundDistance = hit.distance;
     }
 
-    void HandleHoverForce()
-    {
+    
+    void HandleHoverForce() {
         float groundDifference = hoverHeight - currentGroundDistance;
         Vector3 finalHoverForce = Vector3.up * (1 + groundDifference);
         rb.AddForce(finalHoverForce * weight);
     }
 
-    void HandleTorque()
-    {
+    
+    void HandleTorque() {
         rb.AddTorque(Vector3.up * torqueSpeed);
     }
 
-    void HandleDrag()
-    {
+    
+    void HandleDrag() {
         rb.drag = rb.velocity.magnitude * dragFactor;
     }
     #endregion

@@ -187,6 +187,11 @@ PrefabInstance:
     - {fileID: 54795078915352496, guid: 518e1738a9f435b4195734442f74970f, type: 3}
     - {fileID: 23265769256945840, guid: 518e1738a9f435b4195734442f74970f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 518e1738a9f435b4195734442f74970f, type: 3}
+--- !u!4 &143826302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4396464038977092, guid: 518e1738a9f435b4195734442f74970f, type: 3}
+  m_PrefabInstance: {fileID: 2029950648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &571491775
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +935,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weightInLbs: 10
   weight: 0
+--- !u!114 &2029950657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029950649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e5bd6f37d14e74fb2aafa0d3d43e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverHeight: 3
+  hoverPosition: {fileID: 143826302}
+  dragFactor: 0.05
+  torqueSpeed: 4
 --- !u!1 &2101301112
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +965,7 @@ GameObject:
   - component: {fileID: 2101301114}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
