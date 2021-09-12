@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using IndiePixel;
+﻿using UnityEngine;
 
 
 public class Forces : MonoBehaviour {

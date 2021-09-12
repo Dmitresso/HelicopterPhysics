@@ -854,7 +854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54795078915352496, guid: 518e1738a9f435b4195734442f74970f, type: 3}
       propertyPath: m_Drag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 54795078915352496, guid: 518e1738a9f435b4195734442f74970f, type: 3}
       propertyPath: m_Mass
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029950649}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9fd34eea60e7646b0b73084d1184b6, type: 3}
   m_Name: 
@@ -903,6 +903,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   torqueSpeed: 2
   rotationDirection: {x: 0, y: 1, z: 0}
+--- !u!114 &2029950652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029950649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac8390a149851e4a90260609e441ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragFactor: 0.05
 --- !u!1 &2101301112
 GameObject:
   m_ObjectHideFlags: 0

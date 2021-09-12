@@ -1,6 +1,5 @@
-﻿using System;
-using UnityEngine;
-using IndiePixel;
+﻿using UnityEngine;
+
 
 public class Torque : MonoBehaviour {
     #region Varaibles

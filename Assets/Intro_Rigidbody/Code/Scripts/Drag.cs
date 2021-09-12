@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Drag : MonoBehaviour
-{
+
+public class Drag : MonoBehaviour {
     #region Variables
     [Header("Drag Properties")]
     public float dragFactor = 0.05f;
@@ -11,23 +9,19 @@ public class Drag : MonoBehaviour
     private Rigidbody rb;
     #endregion
 
+    
 
-    #region builting methods
-    // Use this for initialization
-    void Start ()
-    {
+    #region Builting Methods
+    private void Start () {
         rb = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate ()
-    {
-		if(rb)
-        {
-            float currentSpeed = rb.velocity.magnitude;
-            float finalDrag = currentSpeed * dragFactor;
-            rb.drag = finalDrag;
-        }
+    
+	private void FixedUpdate () {
+		if (!rb) return;
+		var currentSpeed = rb.velocity.magnitude;
+		var finalDrag = currentSpeed * dragFactor;
+		rb.drag = finalDrag;
 	}
     #endregion
 }
