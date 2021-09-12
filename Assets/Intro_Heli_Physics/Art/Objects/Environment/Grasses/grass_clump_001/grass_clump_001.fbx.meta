@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 854b78f4062f8e948b1aa89c0d4b0159
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: clump_001_LOD0
+    100002: clump_001_LOD1
+    100004: clump_001_LOD2
+    100006: gather_mountains
+    100008: GlobalNodes
+    100010: //RootNode
+    100012: GrassBlade_TextureSheet_Maker
+    100014: Heli_Pad
+    100016: ip_mountain_creator1
+    100018: ip_mountain_creator10
+    100020: ip_mountain_creator11
+    100022: ip_mountain_creator12
+    100024: ip_mountain_creator13
+    100026: ip_mountain_creator2
+    100028: ip_mountain_creator3
+    100030: ip_mountain_creator4
+    100032: ip_mountain_creator5
+    100034: ip_mountain_creator6
+    100036: ip_mountain_creator7
+    100038: ip_mountain_creator8
+    100040: ip_mountain_creator9
+    100042: Large_Boulder_Generator
+    100044: process_terrain
+    100046: skylight1
+    100048: sunlight1
+    400000: clump_001_LOD0
+    400002: clump_001_LOD1
+    400004: clump_001_LOD2
+    400006: gather_mountains
+    400008: GlobalNodes
+    400010: //RootNode
+    400012: GrassBlade_TextureSheet_Maker
+    400014: Heli_Pad
+    400016: ip_mountain_creator1
+    400018: ip_mountain_creator10
+    400020: ip_mountain_creator11
+    400022: ip_mountain_creator12
+    400024: ip_mountain_creator13
+    400026: ip_mountain_creator2
+    400028: ip_mountain_creator3
+    400030: ip_mountain_creator4
+    400032: ip_mountain_creator5
+    400034: ip_mountain_creator6
+    400036: ip_mountain_creator7
+    400038: ip_mountain_creator8
+    400040: ip_mountain_creator9
+    400042: Large_Boulder_Generator
+    400044: process_terrain
+    400046: skylight1
+    400048: sunlight1
+    2100000: grass_blades_MAT
+    2300000: clump_001_LOD0
+    2300002: clump_001_LOD1
+    2300004: clump_001_LOD2
+    3300000: clump_001_LOD0
+    3300002: clump_001_LOD1
+    3300004: clump_001_LOD2
+    4300000: clump_001_LOD0
+    4300002: clump_001_LOD1
+    4300004: clump_001_LOD2
+    10800000: sunlight1
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass_blades_MAT
+    second: {fileID: 2100000, guid: 497b4662422e08c48b21beaaee75afb0, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
