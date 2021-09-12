@@ -1,27 +1,20 @@
 ﻿using UnityEngine;
 
 
-public class Drag : MonoBehaviour {
+public class Drag : BaseRBController {
     #region Variables
     [Header("Drag Properties")]
     public float dragFactor = 0.05f;
-
-    private Rigidbody rb;
     #endregion
 
     
 
-    #region Builting Methods
-    private void Start () {
-        rb = GetComponent<Rigidbody>();
-	}
-	
-    
-	private void FixedUpdate () {
+    #region Custom Methods
+    protected override void HandlePhysics() {
 		if (!rb) return;
 		var currentSpeed = rb.velocity.magnitude;
 		var finalDrag = currentSpeed * dragFactor;
-		rb.drag = finalDrag;
+		rb.drag = finalDrag;		
 	}
     #endregion
 }
