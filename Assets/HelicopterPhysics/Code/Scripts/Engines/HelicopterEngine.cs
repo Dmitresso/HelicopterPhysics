@@ -27,7 +27,7 @@ namespace WheelApps {
 
         #region Custom Methods
         public void UpdateEngine(float throttle) {
-            
+            Debug.Log("[HelicopterEngine -> UpdateEngine()] Throttle: " + throttle);
         }
         #endregion
     }
