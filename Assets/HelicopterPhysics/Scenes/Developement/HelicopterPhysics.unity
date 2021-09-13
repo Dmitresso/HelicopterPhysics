@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 231809839}
   - component: {fileID: 231809838}
   - component: {fileID: 231809840}
+  - component: {fileID: 231809841}
   m_Layer: 0
   m_Name: R22_GRP
   m_TagString: Untagged
@@ -294,6 +295,21 @@ MonoBehaviour:
   inputType: 0
   keyboardInput: {fileID: 231809838}
   xboxInput: {fileID: 231809839}
+--- !u!114 &231809841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231809836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e989d4aa744c04b9a895ed6d8520b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weightInLbs: 10
+  com: {fileID: 912655258}
+  input: {fileID: 231809840}
 --- !u!1 &292756274
 GameObject:
   m_ObjectHideFlags: 0
