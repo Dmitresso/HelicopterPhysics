@@ -2,7 +2,7 @@
 
 
 namespace WheelApps {
-    [RequireComponent(typeof(InputController))]
+    [RequireComponent(typeof(InputController), typeof(KeyboardInput))]
     public class HelicopterController : BaseRBController {
         #region MyRegion
         [Header("Controller Properties")]
