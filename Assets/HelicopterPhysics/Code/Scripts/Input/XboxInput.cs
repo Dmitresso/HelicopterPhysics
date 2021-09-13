@@ -12,7 +12,7 @@
 
         #region Custom Methods
         protected override void HandleThrottle() {
-            throttle = UnityEngine.Input.GetAxis(Input.XboxThrottleUp) +
+            throttle = UnityEngine.Input.GetAxis(Input.XboxThrottleUp) -
                        UnityEngine.Input.GetAxis(Input.XboxThrottleDown);
         }
 
