@@ -38,7 +38,7 @@ namespace WheelApps {
 
 
         private void HandleThrottle() {
-            
+            throttle = UnityEngine.Input.GetAxis(Input.Throttle);
         }
 
 
@@ -49,12 +49,12 @@ namespace WheelApps {
         
 
         private void HandleCollective() {
-            
+            collective = UnityEngine.Input.GetAxis(Input.Collective);
         }
         
 
         private void HandlePedal() {
-            
+            pedal = UnityEngine.Input.GetAxis(Input.Pedal);
         }
         #endregion
     }

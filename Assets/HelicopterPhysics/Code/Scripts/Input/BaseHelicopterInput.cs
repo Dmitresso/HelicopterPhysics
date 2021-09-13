@@ -11,13 +11,6 @@ namespace WheelApps {
 
 
 
-        #region Constants
-        protected const string H = "Horizontal";
-        protected const string V = "Vertical";
-        #endregion
-
-
-        
         #region Builtin Methods
         private void Update() {
             HandleInputs();
@@ -28,8 +21,8 @@ namespace WheelApps {
 
         #region Custom Methods
         protected virtual void HandleInputs() {
-            horizontal = Input.GetAxis(H);
-            vertical = Input.GetAxis(V);
+            horizontal = UnityEngine.Input.GetAxis(Input.Horizontal);
+            vertical = UnityEngine.Input.GetAxis(Input.Vertical);
         }
         #endregion
     }
