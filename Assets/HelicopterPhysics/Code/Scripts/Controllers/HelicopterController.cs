@@ -5,13 +5,16 @@ namespace WheelApps {
     [RequireComponent(typeof(InputController), typeof(KeyboardInput))]
     public class HelicopterController : BaseRBController {
         #region MyRegion
-        [Header("Controller Properties")]
+        //[Header("Controller Properties")]
         public InputController input;
         #endregion
 
 
 
         #region Builtin Methods
+        private void Start() {
+            input = GetComponent<InputController>();
+        }
         #endregion
 
 
