@@ -34,6 +34,8 @@ namespace WheelApps {
             HandleCollective();
             HandleCyclic();
             HandlePedal();
+            
+            ClampInputs();
         }
 
 
@@ -55,6 +57,14 @@ namespace WheelApps {
 
         protected virtual void HandlePedal() {
             pedal = UnityEngine.Input.GetAxis(Input.Pedal);
+        }
+        
+        
+        protected void ClampInputs() {
+            throttle = Mathf.Clamp(throttle, -1f, 1f);
+            collective = Mathf.Clamp(collective, -1f, 1f);
+            cyclic = Vector2.ClampMagnitude(cyclic, 1f);
+            pedal = Mathf.Clamp(pedal, -1f, 1f);
         }
         #endregion
     }
