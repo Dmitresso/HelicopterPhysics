@@ -7,20 +7,24 @@ namespace WheelApps {
         Mobile
     }
     
+    
+    [RequireComponent(typeof(KeyboardInput), typeof(XboxInput))]
     public class InputController : MonoBehaviour {
         #region Variables
+        [Header("Input Properties")]        
         public InputType inputType = InputType.Keyboard;
 
-        [Header("Input Components")]
-        public KeyboardInput keyboardInput;
-        public XboxInput xboxInput;
+        private KeyboardInput keyboardInput;
+        private XboxInput xboxInput;
         #endregion
 
 
 
         #region Builtin Methods
         private void Start() {
-            SetInput(inputType);
+            keyboardInput = GetComponent<KeyboardInput>();
+            xboxInput = GetComponent<XboxInput>();
+            if (keyboardInput && xboxInput) SetInput(inputType);
         }
         #endregion
 
@@ -30,16 +34,12 @@ namespace WheelApps {
         private void SetInput(InputType type) {
             switch (type) {
                 case InputType.Keyboard:
-                    if (keyboardInput) {
-                        keyboardInput.enabled = true;
-                        xboxInput.enabled = false;
-                    }
+                    keyboardInput.enabled = true;
+                    xboxInput.enabled = false;
                     break;
                 case InputType.Xbox:
-                    if (xboxInput) {
-                        xboxInput.enabled = true;
-                        keyboardInput.enabled = false;
-                    }
+                    xboxInput.enabled = true;
+                    keyboardInput.enabled = false;
                     break;
             }
         }
