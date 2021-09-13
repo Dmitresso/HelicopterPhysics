@@ -6,9 +6,9 @@ namespace WheelApps {
         #region Variables
         [Header("Keyboard Inputs")]
         private float throttle;
-        public float collective;
-        public Vector2 cyclic = Vector2.zero;
-        public float pedal;
+        private float collective;
+        private Vector2 cyclic = Vector2.zero;
+        private float pedal;
         #endregion
 
 
