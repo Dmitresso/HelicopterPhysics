@@ -37,23 +37,23 @@ namespace WheelApps {
         }
 
 
-        private void HandleThrottle() {
+        protected virtual void HandleThrottle() {
             throttle = UnityEngine.Input.GetAxis(Input.Throttle);
         }
 
 
-        private void HandleCyclic() {
+        protected virtual void HandleCyclic() {
             cyclic.x = horizontal;
             cyclic.y = vertical;
         }
         
 
-        private void HandleCollective() {
+        protected virtual void HandleCollective() {
             collective = UnityEngine.Input.GetAxis(Input.Collective);
         }
         
 
-        private void HandlePedal() {
+        protected virtual void HandlePedal() {
             pedal = UnityEngine.Input.GetAxis(Input.Pedal);
         }
         #endregion
