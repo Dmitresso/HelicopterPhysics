@@ -5,10 +5,10 @@ namespace WheelApps {
     public class KeyboardInput : BaseHelicopterInput {
         #region Variables
         [Header("Keyboard Inputs")]
-        private float throttle;
-        private float collective;
-        private Vector2 cyclic = Vector2.zero;
-        private float pedal;
+        protected float throttle;
+        protected float collective;
+        protected Vector2 cyclic = Vector2.zero;
+        protected float pedal;
         #endregion
 
 

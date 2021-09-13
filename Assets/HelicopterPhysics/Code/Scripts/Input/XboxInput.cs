@@ -12,22 +12,24 @@
 
         #region Custom Methods
         protected override void HandleThrottle() {
-            base.HandleThrottle();
+            throttle = UnityEngine.Input.GetAxis(Input.XboxThrottleUp) +
+                       UnityEngine.Input.GetAxis(Input.XboxThrottleDown);
         }
 
 
         protected override void HandleCollective() {
-            base.HandleCollective();
+            collective = UnityEngine.Input.GetAxis(Input.XboxCollective);
         }
 
 
         protected override void HandleCyclic() {
-            base.HandleCyclic();
+            cyclic.x = UnityEngine.Input.GetAxis(Input.XboxCyclicH);
+            cyclic.y = UnityEngine.Input.GetAxis(Input.XboxCyclicV);
         }
 
 
         protected override void HandlePedal() {
-            base.HandlePedal();
+            pedal = UnityEngine.Input.GetAxis(Input.XboxPedal);
         }
         #endregion
     }
