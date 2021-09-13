@@ -1,18 +1,18 @@
-﻿using UnityEditor;
+using UnityEditor;
 
 
 namespace WheelApps {
-    [CustomEditor(typeof(KeyboardInput))]
-    public class KeyboardInputEditor : Editor {
+    [CustomEditor(typeof(XboxInput))]
+    public class XboxInputEditor : Editor {
         #region Variables
-        private KeyboardInput targetInput;
+        private XboxInput targetInput;
         #endregion
 
 
 
         #region Builtin methods
         private void OnEnable() {
-            targetInput = (KeyboardInput) target;
+            targetInput = (XboxInput) target;
         }
 
 
