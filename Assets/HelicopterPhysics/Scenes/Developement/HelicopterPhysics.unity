@@ -510,7 +510,7 @@ MonoBehaviour:
   com: {fileID: 912655258}
   engines:
   - {fileID: 5914147369217190926}
-  rotorController: {fileID: 0}
+  rotorController: {fileID: 1628247979}
 --- !u!1 &264884460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,6 +2598,7 @@ GameObject:
   - component: {fileID: 1618293407}
   - component: {fileID: 1618293409}
   - component: {fileID: 1618293408}
+  - component: {fileID: 1618293410}
   m_Layer: 0
   m_Name: R22_Rotors_MainMast_Geo
   m_TagString: Untagged
@@ -2670,6 +2671,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618293406}
   m_Mesh: {fileID: 4300010, guid: 9639c7d2cd1617c4db6ae81d88f96bce, type: 3}
+--- !u!114 &1618293410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618293406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5ebf9edf19429db7ef569bc7153a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628247977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,6 +3592,7 @@ GameObject:
   - component: {fileID: 2044238327}
   - component: {fileID: 2044238329}
   - component: {fileID: 2044238328}
+  - component: {fileID: 2044238330}
   m_Layer: 0
   m_Name: R22_Rotors_TailMast_Geo
   m_TagString: Untagged
@@ -3653,6 +3667,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044238326}
   m_Mesh: {fileID: 4300002, guid: 9639c7d2cd1617c4db6ae81d88f96bce, type: 3}
+--- !u!114 &2044238330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044238326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea52dd5d07bb4bc0862f871c721a0cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023582286980416
 GameObject:
   m_ObjectHideFlags: 0
