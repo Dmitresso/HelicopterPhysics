@@ -5,19 +5,21 @@ namespace WheelApps {
     public class KeyboardInput : BaseHelicopterInput {
         #region Variables
         [Header("Keyboard Inputs")]
-        protected float throttle;
+        protected float rawThrottle;
         protected float collective;
         protected Vector2 cyclic = Vector2.zero;
         protected float pedal;
+        protected float stickyThrottle;
         #endregion
 
 
 
         #region Properties
-        public float Throttle => throttle;
+        public float RawThrottle => rawThrottle;
         public float Collective => collective;
         public Vector2 Cyclic => cyclic;
         public float Pedal => pedal;
+        public float StickyThrottle => stickyThrottle;
         #endregion
         
         
@@ -34,13 +36,14 @@ namespace WheelApps {
             HandleCollective();
             HandleCyclic();
             HandlePedal();
+            HandleStickyThrottle();
             
             ClampInputs();
         }
 
 
         protected virtual void HandleThrottle() {
-            throttle = UnityEngine.Input.GetAxis(Input.Throttle);
+            rawThrottle = UnityEngine.Input.GetAxis(Input.Throttle);
         }
 
 
@@ -61,10 +64,16 @@ namespace WheelApps {
         
         
         protected void ClampInputs() {
-            throttle = Mathf.Clamp(throttle, -1f, 1f);
+            rawThrottle = Mathf.Clamp(rawThrottle, -1f, 1f);
             collective = Mathf.Clamp(collective, -1f, 1f);
             cyclic = Vector2.ClampMagnitude(cyclic, 1f);
             pedal = Mathf.Clamp(pedal, -1f, 1f);
+        }
+
+
+        protected void HandleStickyThrottle() {
+            stickyThrottle += rawThrottle * Time.deltaTime;
+            stickyThrottle = Mathf.Clamp(stickyThrottle, 0f, 1f);
         }
         #endregion
     }

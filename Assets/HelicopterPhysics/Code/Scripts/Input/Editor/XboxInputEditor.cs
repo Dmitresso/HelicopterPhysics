@@ -30,7 +30,7 @@ namespace WheelApps {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             EditorGUILayout.Space();
             EditorGUI.indentLevel++;
-            EditorGUILayout.LabelField("Throttle: " + targetInput.Throttle.ToString("0.00"), EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Throttle: " + targetInput.RawThrottle.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("Collective: " + targetInput.Collective.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("Cyclic: " + targetInput.Cyclic.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("Pedal: " + targetInput.Pedal.ToString("0.00"), EditorStyles.boldLabel);
