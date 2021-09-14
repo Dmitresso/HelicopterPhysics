@@ -623,7 +623,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2044238327}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &267401303
 MeshRenderer:
@@ -2535,7 +2535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2044238327}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1514170415
 MeshRenderer:
@@ -2683,6 +2683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5ebf9edf19429db7ef569bc7153a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lRotor: {fileID: 1882779951}
+  rRotor: {fileID: 1772869442}
+  maxPitch: 35
 --- !u!1 &1628247977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,8 +3614,8 @@ Transform:
   m_LocalPosition: {x: -0.06713655, y: 1.1720067, z: -2.2367432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1514170414}
   - {fileID: 267401302}
+  - {fileID: 1514170414}
   - {fileID: 776833301}
   m_Father: {fileID: 1628247978}
   m_RootOrder: 1
@@ -3679,6 +3682,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea52dd5d07bb4bc0862f871c721a0cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeedModifier: 1.5
+  lRotor: {fileID: 267401302}
+  rRotor: {fileID: 1514170414}
+  maxPitch: 45
 --- !u!1 &1023582286980416
 GameObject:
   m_ObjectHideFlags: 0

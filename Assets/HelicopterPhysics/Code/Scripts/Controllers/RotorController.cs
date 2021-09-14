@@ -25,7 +25,7 @@ namespace WheelApps {
             
             // currentRPM * 360f / 60f
             var dps = currentRPM * 60f * Time.deltaTime;
-            foreach (var rotor in rotors) rotor.UpdateRotor(dps);
+            foreach (var rotor in rotors) rotor.UpdateRotor(dps, input);
         }
         #endregion
     }
