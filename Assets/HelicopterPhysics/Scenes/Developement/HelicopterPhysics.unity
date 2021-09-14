@@ -9453,7 +9453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 140
   maxRPM: 2700
-  powerDelay: 2
+  powerDelay: 0.02
   powerCurve:
     serializedVersion: 2
     m_Curve:

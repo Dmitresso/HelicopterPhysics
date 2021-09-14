@@ -14,7 +14,8 @@ namespace WheelApps {
 
 
         #region Interface Methods
-        public void UpdateRotor() {
+        public void UpdateRotor(float dps) {
+            transform.Rotate(Vector3.up, dps);
         }        
         #endregion
 

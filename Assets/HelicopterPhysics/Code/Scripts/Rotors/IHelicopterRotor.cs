@@ -1,7 +1,7 @@
 namespace WheelApps {
     public interface IHelicopterRotor {
         #region Methods
-        public void UpdateRotor();
+        public void UpdateRotor(float dps);
         #endregion
     }
 }

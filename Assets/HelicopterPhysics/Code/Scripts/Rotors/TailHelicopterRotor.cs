@@ -4,6 +4,8 @@
 namespace WheelApps {
     public class TailHelicopterRotor : MonoBehaviour, IHelicopterRotor {
         #region Variables
+        [Header("Tail Rotor Properties")]
+        public float rotationSpeedModifier = 1.5f;
         #endregion
 
 
@@ -14,7 +16,8 @@ namespace WheelApps {
 
 
         #region Interface Methods
-        public void UpdateRotor() {
+        public void UpdateRotor(float dps) {
+            transform.Rotate(Vector3.right, dps * rotationSpeedModifier);
         }        
         #endregion
 

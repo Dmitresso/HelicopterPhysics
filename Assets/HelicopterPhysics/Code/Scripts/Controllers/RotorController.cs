@@ -14,7 +14,6 @@ namespace WheelApps {
         #region Builtin Methods
         private void Start() {
             rotors = GetComponentsInChildren<IHelicopterRotor>().ToList();
-            Debug.Log(rotors.Count);
         }
         #endregion
 
@@ -23,7 +22,10 @@ namespace WheelApps {
         #region Custom Methods
         public void UpdateRotors(InputController input, float currentRPM) {
             if (rotors.Count <= 0) return;
-            foreach (var rotor in rotors) rotor.UpdateRotor();
+            
+            // currentRPM * 360f / 60f
+            var dps = currentRPM * 60f * Time.deltaTime;
+            foreach (var rotor in rotors) rotor.UpdateRotor(dps);
         }
         #endregion
     }
