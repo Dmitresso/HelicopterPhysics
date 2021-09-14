@@ -15,8 +15,8 @@ namespace WheelApps {
         [Header("Input Properties")]        
         public InputType inputType = InputType.Keyboard;
 
-        public KeyboardInput keyboardInput;
-        public XboxInput xboxInput;
+        private KeyboardInput keyboardInput;
+        private XboxInput xboxInput;
 
         private float throttle;
         private float collective;
@@ -39,7 +39,7 @@ namespace WheelApps {
         private void Start() {
             keyboardInput = GetComponent<KeyboardInput>();
             xboxInput = GetComponent<XboxInput>();
-            if (keyboardInput && xboxInput) SetInput(inputType);
+            //if (keyboardInput && xboxInput) SetInput(inputType);
         }
 
 
@@ -50,15 +50,12 @@ namespace WheelApps {
                     collective = keyboardInput.Collective;
                     cyclic = keyboardInput.Cyclic;
                     pedal = keyboardInput.Pedal;
-                    Debug.Log("[InputController -> Update()] THROTTLE: " + throttle);
-                    Debug.Log("[InputController -> Update()] INPUT TYPE: " + keyboardInput.GetType());
                     break;
                 case InputType.Xbox:
                     throttle = xboxInput.Throttle;
                     collective = xboxInput.Collective;
                     cyclic = xboxInput.Cyclic;
                     pedal = xboxInput.Pedal;
-                    Debug.Log("[InputController -> Update()] INPUT TYPE: " + xboxInput.GetType());
                     break;
                 case InputType.Mobile:
                     break;
