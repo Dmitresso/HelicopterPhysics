@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
+
 namespace WheelApps {
     public class HelicopterEngine : MonoBehaviour {
         #region Variables
         public float maxHP = 140f;
         public float maxRPM = 2700f;
         public float powerDelay = 2f;
+        public AnimationCurve powerCurve = new AnimationCurve(powerCurveKeyframes);
 
+        private static Keyframe[] powerCurveKeyframes = {new Keyframe(0f, 0f), new Keyframe(1f, 1f)};
         private float currentHP;
         private float currentRPM;
         #endregion
@@ -27,7 +30,7 @@ namespace WheelApps {
 
         #region Custom Methods
         public void UpdateEngine(float throttle) {
-            var targetHP = throttle * maxHP;
+            var targetHP = powerCurve.Evaluate(throttle) * maxHP;
             currentHP = Mathf.Lerp(currentHP, targetHP, powerDelay * Time.deltaTime);
             
             var targetRPM = throttle * maxRPM;
