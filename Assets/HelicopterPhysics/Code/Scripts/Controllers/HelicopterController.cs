@@ -8,6 +8,9 @@ namespace WheelApps {
         #region MyRegion
         [Header("Helicopter Properties")]
         public List<HelicopterEngine> engines = new List<HelicopterEngine>();
+
+        [Header("Helicopter Rotors")]
+        public RotorController rotorController;
         
         private InputController input;
         #endregion
@@ -27,6 +30,7 @@ namespace WheelApps {
         protected override void HandlePhysics() {
             if (!input) return;
             HandleEngines();
+            HandleRotors();
             HandleCharacteristics();
         }
 
@@ -38,6 +42,12 @@ namespace WheelApps {
             }
         }
 
+
+        protected void HandleRotors() {
+            if (!rotorController || engines.Count <= 0) return;
+            rotorController.UpdateRotors(input, engines[0].CurrentRPM);
+        }
+        
 
         protected virtual void HandleCharacteristics() {
             
