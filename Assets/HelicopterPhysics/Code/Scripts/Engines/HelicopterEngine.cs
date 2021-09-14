@@ -27,7 +27,11 @@ namespace WheelApps {
 
         #region Custom Methods
         public void UpdateEngine(float throttle) {
-            Debug.Log("[HelicopterEngine -> UpdateEngine()] Throttle: " + throttle);
+            var targetHP = throttle * maxHP;
+            currentHP = Mathf.Lerp(currentHP, targetHP, powerDelay * Time.deltaTime);
+            
+            var targetRPM = throttle * maxRPM;
+            currentRPM = Mathf.Lerp(currentRPM, targetRPM, powerDelay * Time.deltaTime);
         }
         #endregion
     }
