@@ -30,7 +30,6 @@ namespace WheelApps {
 
         #region Custom Methods
         public void UpdateEngine(float throttle) {
-
             var targetHP = powerCurve.Evaluate(throttle) * maxHP;
             currentHP = Mathf.Lerp(currentHP, targetHP, powerDelay * Time.deltaTime);
             

@@ -23,9 +23,17 @@ namespace WheelApps {
             var blurTexId = Mathf.FloorToInt(normalizedDPS * blurTextures.Count - 1);
             blurTexId = Mathf.Clamp(blurTexId, 0, blurTextures.Count - 1);
 
-            if (blurMat && blurTextures.Count > 0) {
+            if (blurTextures.Count <= 0) return;
+            if (blurMat) {
                 blurMat.SetTexture(MainTex, blurTextures[blurTexId]);
             }
+
+            HandleGeoBladeViz(blurTexId > 2);
+        }
+
+
+        private void HandleGeoBladeViz(bool viz) {
+            foreach (var blade in blades) blade.SetActive(viz);
         }
         #endregion
 
