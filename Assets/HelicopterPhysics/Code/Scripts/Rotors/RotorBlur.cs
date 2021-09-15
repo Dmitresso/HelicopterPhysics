@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace WheelApps {
     public class RotorBlur : MonoBehaviour, IHelicopterRotor {
         #region Variables
@@ -8,7 +9,10 @@ namespace WheelApps {
         public float maxDps = 1000f;
         public List<GameObject> blades = new List<GameObject>();
         public GameObject blurGeo;
-        public List<Texture2D> blurTextures = new List<Texture2D>(); 
+        public List<Texture2D> blurTextures = new List<Texture2D>();
+        public Material blurMat;
+        
+        private static readonly int MainTex = Shader.PropertyToID("_MainTex");
         #endregion
         
         
@@ -18,7 +22,10 @@ namespace WheelApps {
             var normalizedDPS = Mathf.InverseLerp(0f, maxDps, dps);
             var blurTexId = Mathf.FloorToInt(normalizedDPS * blurTextures.Count - 1);
             blurTexId = Mathf.Clamp(blurTexId, 0, blurTextures.Count - 1);
-            Debug.Log(blurTexId);
+
+            if (blurMat && blurTextures.Count > 0) {
+                blurMat.SetTexture(MainTex, blurTextures[blurTexId]);
+            }
         }
         #endregion
 
