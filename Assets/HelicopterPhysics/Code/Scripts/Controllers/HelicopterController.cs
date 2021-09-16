@@ -13,14 +13,16 @@ namespace WheelApps {
         public RotorController rotorController;
         
         private InputController input;
+        private HelicopterCharacteristics characteristics;
         #endregion
 
 
 
         #region Builtin Methods
-        private void Start() {
+        public override void Start() {
             base.Start();
             input = GetComponent<InputController>();
+            characteristics = GetComponent<HelicopterCharacteristics>();
         }
         #endregion
 
@@ -50,7 +52,7 @@ namespace WheelApps {
         
 
         protected virtual void HandleCharacteristics() {
-            
+            if (characteristics) characteristics.UpdateCharacteristics();
         }
         #endregion
     }

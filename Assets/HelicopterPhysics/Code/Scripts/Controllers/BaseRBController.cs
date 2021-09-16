@@ -23,7 +23,7 @@ namespace WheelApps {
         
     
         #region BuiltIn Methods
-        protected void Start() {
+        public virtual void Start() {
             var finalKG = weightInLbs * lbsToKg;
             weight = finalKG;
             rb = GetComponent<Rigidbody>();
