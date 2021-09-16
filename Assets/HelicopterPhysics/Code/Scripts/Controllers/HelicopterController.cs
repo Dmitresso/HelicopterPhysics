@@ -52,7 +52,7 @@ namespace WheelApps {
         
 
         protected virtual void HandleCharacteristics() {
-            if (characteristics) characteristics.UpdateCharacteristics();
+            if (characteristics) characteristics.UpdateCharacteristics(rb, input);
         }
         #endregion
     }

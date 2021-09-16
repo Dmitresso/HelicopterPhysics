@@ -7,25 +7,26 @@ namespace WheelApps {
 
 
         #region Custom Methods
-        public void UpdateCharacteristics() {
-            HandleLift();
-            HandleCyclic();
-            HandlePedals();
+        public void UpdateCharacteristics(Rigidbody rb, InputController input) {
+            HandleLift(rb, input);
+            HandleCyclic(rb, input);
+            HandlePedals(rb, input);
         }
 
 
-        protected virtual void HandleLift() {
-            Debug.Log("LIFT");
+        protected virtual void HandleLift(Rigidbody rb, InputController input) {
+            var liftForce = transform.up * (Physics.gravity.magnitude * rb.mass);
+            rb.AddForce(liftForce, ForceMode.Force);
         }
         
         
-        protected virtual void HandleCyclic() {
-            Debug.Log("CYCLIC");
+        protected virtual void HandleCyclic(Rigidbody rb, InputController input) {
+            // Debug.Log("CYCLIC");
         }
 
 
-        protected virtual void HandlePedals() {
-            Debug.Log("PEDALS");
+        protected virtual void HandlePedals(Rigidbody rb, InputController input) {
+            // Debug.Log("PEDALS");
         }
         #endregion
     }
