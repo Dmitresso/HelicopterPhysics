@@ -8,18 +8,24 @@ namespace WheelApps {
         public Transform lRotor;
         public Transform rRotor;
         public float maxPitch = 35f;
+        
+        private float currentRPM;
         #endregion
 
 
 
-        #region Builtin Methods
+        #region Properties
+        public float CurrentRPM => currentRPM;
         #endregion
 
 
 
         #region Interface Methods
         public void UpdateRotor(float dps, InputController input) {
-            transform.Rotate(Vector3.up, dps);
+            //currentRPM = dps / 360 * 60f;
+            currentRPM = dps * 6f;
+            
+            transform.Rotate(Vector3.up, dps * Time.deltaTime);
 
             if (!lRotor || !rRotor) return;
             lRotor.localRotation = Quaternion.Euler(input.Collective * maxPitch, 0f, 0f);

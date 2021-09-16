@@ -20,7 +20,7 @@ namespace WheelApps {
 
         #region Interface Methods
         public void UpdateRotor(float dps, InputController input) {
-            transform.Rotate(Vector3.right, dps * rotationSpeedModifier);
+            transform.Rotate(Vector3.right, dps * rotationSpeedModifier * Time.deltaTime);
             
             if (!lRotor || !rRotor) return;
             lRotor.localRotation = Quaternion.Euler(0f, input.Pedal * maxPitch, 0f);

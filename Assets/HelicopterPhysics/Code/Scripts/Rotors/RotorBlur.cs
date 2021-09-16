@@ -19,23 +19,30 @@ namespace WheelApps {
         
         #region Interface Methods
         public void UpdateRotor(float dps, InputController input) {
+            //Debug.Log("Blurring Main Rotor");
             var normalizedDPS = Mathf.InverseLerp(0f, maxDps, dps);
-            var blurTexId = Mathf.FloorToInt(normalizedDPS * blurTextures.Count - 1);
-            blurTexId = Mathf.Clamp(blurTexId, 0, blurTextures.Count - 1);
+            var blurTexID = Mathf.FloorToInt(normalizedDPS * blurTextures.Count - 1);
+            blurTexID = Mathf.Clamp(blurTexID, 0, blurTextures.Count - 1);
 
-            if (blurTextures.Count <= 0) return;
-            if (blurMat) {
-                blurMat.SetTexture(MainTex, blurTextures[blurTexId]);
-            }
+            if (blurMat && blurTextures.Count > 0) 
+                blurMat.SetTexture(MainTex, blurTextures[blurTexID]);
+            
 
-            HandleGeoBladeViz(blurTexId > 2);
+            if (blurTexID > 2 && blades.Count > 0) HandleGeoBladeViz(false);
+            else HandleGeoBladeViz(true);
+
+            HandleBlurGeo(blurTexID > 1);
         }
-
+        
 
         private void HandleGeoBladeViz(bool viz) {
-            foreach (var blade in blades) blade.SetActive(viz);
+            foreach (var blade in blades) if (blade.activeSelf != viz) blade.SetActive(viz);
+        }
+        
+        
+        private void HandleBlurGeo(bool viz) {
+            if (blurGeo && blurGeo.activeSelf != viz) blurGeo.SetActive(viz);
         }
         #endregion
-
     }
 }

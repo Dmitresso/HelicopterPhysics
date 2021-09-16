@@ -268,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7107586acaaa1684882bebd97b029778, type: 2}
+  - {fileID: 2100000, guid: 0ff06d8ab683783478e4164a6a3f9e1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e989d4aa744c04b9a895ed6d8520b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weightInLbs: 10
+  weightInLbs: 1200
   com: {fileID: 912655258}
   engines:
   - {fileID: 5914147369217190926}
@@ -1158,7 +1158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4773d262a259d745832ae23827530ff, type: 2}
+  - {fileID: 2100000, guid: 9dbc2711e6a5f304fa05f8b1820ce3a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2699,7 +2699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cb7cb3ef0571b449f584833b06814c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDps: 1000
+  maxDps: 3000
   blades:
   - {fileID: 1882779950}
   - {fileID: 1772869441}
@@ -2761,6 +2761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225b5120fff144d0a21a12fb78e3ddff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDps: 3000
 --- !u!1 &1645964287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,6 +3627,7 @@ GameObject:
   - component: {fileID: 2044238329}
   - component: {fileID: 2044238328}
   - component: {fileID: 2044238330}
+  - component: {fileID: 2044238331}
   m_Layer: 0
   m_Name: R22_Rotors_TailMast_Geo
   m_TagString: Untagged
@@ -3716,6 +3718,35 @@ MonoBehaviour:
   lRotor: {fileID: 267401302}
   rRotor: {fileID: 1514170414}
   maxPitch: 45
+--- !u!114 &2044238331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044238326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cb7cb3ef0571b449f584833b06814c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDps: 3000
+  blades:
+  - {fileID: 267401301}
+  - {fileID: 1514170413}
+  blurGeo: {fileID: 776833300}
+  blurTextures:
+  - {fileID: 2800000, guid: ede47a5d9060c2e44ae81bf25fd55888, type: 3}
+  - {fileID: 2800000, guid: a33fa54fa2c29444cbf3cc3dd5cb3166, type: 3}
+  - {fileID: 2800000, guid: 941e948fa8f56e448ac4011f490b505c, type: 3}
+  - {fileID: 2800000, guid: 1f36a2a1b29d29e48a876b9e18fecd23, type: 3}
+  - {fileID: 2800000, guid: 8105f6dc01fa4564c9865e059de2ebb7, type: 3}
+  - {fileID: 2800000, guid: 117df4248da699646afbc6b0a4d4cc1c, type: 3}
+  - {fileID: 2800000, guid: de88b9f4a027c374693d74be191bbbdf, type: 3}
+  - {fileID: 2800000, guid: 5d955152a99f2fb4ba6426b366bffc1d, type: 3}
+  - {fileID: 2800000, guid: 249c9b0a3d354ab438f82bf79a2a35e9, type: 3}
+  - {fileID: 2800000, guid: ecdd26f5fba60434fa6cdaa6ef1a7392, type: 3}
+  blurMat: {fileID: 2100000, guid: 9dbc2711e6a5f304fa05f8b1820ce3a0, type: 2}
 --- !u!1 &1023582286980416
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,7 +9521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 140
   maxRPM: 2700
-  powerDelay: 0.02
+  powerDelay: 0.25
   powerCurve:
     serializedVersion: 2
     m_Curve:
@@ -9557,8 +9588,8 @@ Rigidbody:
   m_GameObject: {fileID: 231809836}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

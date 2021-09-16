@@ -6,6 +6,7 @@ using UnityEngine;
 namespace WheelApps {
     public class RotorController : MonoBehaviour {
         #region Variables
+        public float maxDps = 3000f;
         public List<IHelicopterRotor> rotors;
         #endregion
 
@@ -23,9 +24,9 @@ namespace WheelApps {
         public void UpdateRotors(InputController input, float currentRPM) {
             if (rotors.Count <= 0) return;
             
-            // currentRPM * 360f / 60f
-            //var dps = currentRPM * 60f * Time.deltaTime;
-            var dps = currentRPM * 360f / 60f * Time.deltaTime;
+            // var dps = currentRPM * 360f / 60f * Time.deltaTime;
+            var dps = currentRPM * 60f * Time.deltaTime;
+            dps = Mathf.Clamp(dps, 0f, maxDps);
             foreach (var rotor in rotors) rotor.UpdateRotor(dps, input);
         }
         #endregion
