@@ -23,6 +23,7 @@ namespace WheelApps {
         private Vector2 cyclic;
         private float pedal;
         private float stickyThrottle;
+        private float stickyCollective;
         #endregion
 
 
@@ -33,6 +34,7 @@ namespace WheelApps {
         public Vector2 Cyclic => cyclic;
         public float Pedal => pedal;
         public float StickyThrottle => stickyThrottle;
+        public float StickyCollective => stickyCollective;
         #endregion
         
         
@@ -53,6 +55,7 @@ namespace WheelApps {
                     cyclic = keyboardInput.Cyclic;
                     pedal = keyboardInput.Pedal;
                     stickyThrottle = keyboardInput.StickyThrottle;
+                    stickyCollective = keyboardInput.StickyCollective;
                     break;
                 case InputType.Xbox:
                     throttle = xboxInput.RawThrottle;
@@ -60,6 +63,7 @@ namespace WheelApps {
                     cyclic = xboxInput.Cyclic;
                     pedal = xboxInput.Pedal;
                     stickyThrottle = xboxInput.StickyThrottle;
+                    stickyCollective = xboxInput.StickyCollective;
                     break;
                 case InputType.Mobile:
                     break;

@@ -10,6 +10,7 @@ namespace WheelApps {
         protected Vector2 cyclic = Vector2.zero;
         protected float pedal;
         protected float stickyThrottle;
+        protected float stickyCollective;
         #endregion
 
 
@@ -20,6 +21,7 @@ namespace WheelApps {
         public Vector2 Cyclic => cyclic;
         public float Pedal => pedal;
         public float StickyThrottle => stickyThrottle;
+        public float StickyCollective => stickyCollective;
         #endregion
         
         
@@ -37,6 +39,7 @@ namespace WheelApps {
             HandleCyclic();
             HandlePedal();
             HandleStickyThrottle();
+            HandleStickyCollective();
             
             ClampInputs();
         }
@@ -61,19 +64,25 @@ namespace WheelApps {
         protected virtual void HandlePedal() {
             pedal = UnityEngine.Input.GetAxis(Input.Pedal);
         }
+
+
+        protected void HandleStickyThrottle() {
+            stickyThrottle += rawThrottle * Time.deltaTime;
+            stickyThrottle = Mathf.Clamp(stickyThrottle, 0f, 1f);
+        }
+
         
+        protected void HandleStickyCollective() {
+            stickyCollective += collective * Time.deltaTime;
+            stickyCollective = Mathf.Clamp01(stickyCollective);
+        }
+
         
         protected void ClampInputs() {
             rawThrottle = Mathf.Clamp(rawThrottle, -1f, 1f);
             collective = Mathf.Clamp(collective, -1f, 1f);
             cyclic = Vector2.ClampMagnitude(cyclic, 1f);
             pedal = Mathf.Clamp(pedal, -1f, 1f);
-        }
-
-
-        protected void HandleStickyThrottle() {
-            stickyThrottle += rawThrottle * Time.deltaTime;
-            stickyThrottle = Mathf.Clamp(stickyThrottle, 0f, 1f);
         }
         #endregion
     }

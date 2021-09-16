@@ -28,8 +28,8 @@ namespace WheelApps {
             transform.Rotate(Vector3.up, dps * Time.deltaTime);
 
             if (!lRotor || !rRotor) return;
-            lRotor.localRotation = Quaternion.Euler(input.Collective * maxPitch, 0f, 0f);
-            rRotor.localRotation = Quaternion.Euler(- input.Collective * maxPitch, 0f, 0f);
+            lRotor.localRotation = Quaternion.Euler(-input.StickyCollective * maxPitch, 0f, 0f);
+            rRotor.localRotation = Quaternion.Euler(input.StickyCollective * maxPitch, 0f, 0f);
         }        
         #endregion
 
