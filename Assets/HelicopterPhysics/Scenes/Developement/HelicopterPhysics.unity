@@ -1756,8 +1756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7147384155194228275}
-  height: 2
-  distance: 2
+  lookAtTarget: {fileID: 231809837}
+  height: 3.5
+  distance: 6.5
 --- !u!1001 &1030088898
 PrefabInstance:
   m_ObjectHideFlags: 0
