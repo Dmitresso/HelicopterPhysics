@@ -12,6 +12,8 @@ namespace WheelApps {
 
         [Space] [Header("Cyclic Properties")]
         public float cyclicForce = 2f;
+
+        private Vector3 flatForward, flatRight;
         #endregion
 
 
@@ -29,6 +31,8 @@ namespace WheelApps {
             HandleLift(rb, input);
             HandleCyclic(rb, input);
             HandlePedals(rb, input);
+            CalculateAngles();
+            AutoLevel();
         }
 
 
@@ -52,6 +56,24 @@ namespace WheelApps {
 
         protected virtual void HandlePedals(Rigidbody rb, InputController input) {
             rb.AddForce(input.Pedal * tailForce * Vector3.up, ForceMode.Acceleration);
+        }
+
+
+        private void CalculateAngles() {
+            flatForward = transform.forward;
+            flatForward.y = 0f;
+            flatForward = flatForward.normalized;
+            //Debug.DrawLine(transform.position, flatForward, Color.blue);
+
+            flatRight = transform.right;
+            flatRight.y = 0f;
+            flatRight = flatRight.normalized;
+            //Debug.DrawLine(transform.position, flatRight, Color.red);
+        }
+
+
+        private void AutoLevel() {
+            
         }
         #endregion
     }
