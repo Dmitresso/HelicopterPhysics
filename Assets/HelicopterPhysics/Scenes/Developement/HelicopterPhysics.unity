@@ -524,6 +524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa02d1bfdbc2d8945ab89d83a272e4e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLiftForce: 10
+  mainRotor: {fileID: 1618293410}
 --- !u!1 &264884460
 GameObject:
   m_ObjectHideFlags: 0
