@@ -528,6 +528,8 @@ MonoBehaviour:
   mainRotor: {fileID: 1618293410}
   tailForce: 3
   cyclicForce: 2
+  autoLevelForce: 2
+  cyclicForceMultiplier: 1000
 --- !u!1 &264884460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1610,7 @@ GameObject:
   - component: {fileID: 997864332}
   - component: {fileID: 997864331}
   - component: {fileID: 997864334}
+  - component: {fileID: 997864335}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1740,6 +1743,21 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &997864335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997864330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fc418b45674ef3874249a57f129eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7147384155194228275}
+  height: 2
+  distance: 2
 --- !u!1001 &1030088898
 PrefabInstance:
   m_ObjectHideFlags: 0
