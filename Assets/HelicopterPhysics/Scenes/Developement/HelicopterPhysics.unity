@@ -526,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLiftForce: 10
   mainRotor: {fileID: 1618293410}
+  tailForce: 2
 --- !u!1 &264884460
 GameObject:
   m_ObjectHideFlags: 0

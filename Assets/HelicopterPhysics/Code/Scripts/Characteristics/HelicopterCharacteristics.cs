@@ -6,6 +6,11 @@ namespace WheelApps {
         [Header("Lift Properties")]
         public float maxLiftForce = 10f;
         public MainHelicopterRotor mainRotor;
+
+        [Space]
+        [Header("Tail Rotor Properties")]
+        public float tailForce = 2000f;
+        
         #endregion
 
 
@@ -36,12 +41,12 @@ namespace WheelApps {
         
         
         protected virtual void HandleCyclic(Rigidbody rb, InputController input) {
-            // Debug.Log("CYCLIC");
+            
         }
 
 
         protected virtual void HandlePedals(Rigidbody rb, InputController input) {
-            // Debug.Log("PEDALS");
+            rb.AddForce(input.Pedal * tailForce * Vector3.up, ForceMode.Acceleration);
         }
         #endregion
     }
