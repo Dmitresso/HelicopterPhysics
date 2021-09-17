@@ -7,10 +7,11 @@ namespace WheelApps {
         public float maxLiftForce = 10f;
         public MainHelicopterRotor mainRotor;
 
-        [Space]
-        [Header("Tail Rotor Properties")]
+        [Space] [Header("Tail Rotor Properties")]
         public float tailForce = 2000f;
-        
+
+        [Space] [Header("Cyclic Properties")]
+        public float cyclicForce = 2f;
         #endregion
 
 
@@ -41,7 +42,11 @@ namespace WheelApps {
         
         
         protected virtual void HandleCyclic(Rigidbody rb, InputController input) {
+            var cyclicZForce = input.Cyclic.x * cyclicForce;
+            rb.AddRelativeTorque(cyclicZForce * Vector3.forward, ForceMode.Acceleration);
             
+            var cyclicXForce = -input.Cyclic.y * cyclicForce;
+            rb.AddRelativeTorque(cyclicZForce * Vector3.right, ForceMode.Acceleration);
         }
 
 
