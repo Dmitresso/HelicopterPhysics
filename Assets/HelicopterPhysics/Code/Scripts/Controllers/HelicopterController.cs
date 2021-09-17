@@ -38,10 +38,7 @@ namespace WheelApps {
 
 
         protected virtual void HandleEngines() {
-            foreach (var engine in engines) {
-                var finalPower = engine.CurrentHP;
-                engine.UpdateEngine(input.StickyThrottle);
-            }
+            foreach (var engine in engines) engine.UpdateEngine(input.StickyThrottle);
         }
 
 

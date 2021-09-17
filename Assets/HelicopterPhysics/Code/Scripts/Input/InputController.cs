@@ -43,7 +43,7 @@ namespace WheelApps {
         private void Start() {
             keyboardInput = GetComponent<KeyboardInput>();
             xboxInput = GetComponent<XboxInput>();
-            //if (keyboardInput && xboxInput) SetInput(inputType);
+            if (keyboardInput && xboxInput) SetInput(inputType);
         }
 
 

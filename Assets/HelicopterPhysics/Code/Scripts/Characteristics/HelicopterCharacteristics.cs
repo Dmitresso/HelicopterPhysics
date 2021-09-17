@@ -12,8 +12,12 @@ namespace WheelApps {
 
         [Space] [Header("Cyclic Properties")]
         public float cyclicForce = 2f;
-
+        
+        [Space] [Header("Auto Level Properties")]
+        public float autoLevelForce = 2f;
+        
         private Vector3 flatForward, flatRight;
+        private float forwardDot, rightDot;
         #endregion
 
 
@@ -32,7 +36,7 @@ namespace WheelApps {
             HandleCyclic(rb, input);
             HandlePedals(rb, input);
             CalculateAngles();
-            AutoLevel();
+            AutoLevel(rb);
         }
 
 
@@ -60,6 +64,8 @@ namespace WheelApps {
 
 
         private void CalculateAngles() {
+            var transform = this.transform;
+            
             flatForward = transform.forward;
             flatForward.y = 0f;
             flatForward = flatForward.normalized;
@@ -69,11 +75,20 @@ namespace WheelApps {
             flatRight.y = 0f;
             flatRight = flatRight.normalized;
             //Debug.DrawLine(transform.position, flatRight, Color.red);
+
+            forwardDot = Vector3.Dot(transform.up, flatForward);
+            rightDot = Vector3.Dot(transform.right, flatRight);
+            
+            // Debug.Log($"FWD: {forwardDot.ToString()} - Right: {rightDot.ToString()}");
         }
 
 
-        private void AutoLevel() {
+        private void AutoLevel(Rigidbody rb) {
+            var rightForce = -forwardDot * autoLevelForce;
+            var forwardForce = rightDot * autoLevelForce;
             
+            rb.AddRelativeTorque(rightForce * Vector3.right, ForceMode.Acceleration);
+            rb.AddRelativeTorque(forwardForce * Vector3.forward, ForceMode.Acceleration);
         }
         #endregion
     }
