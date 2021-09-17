@@ -15,17 +15,10 @@ namespace WheelApps {
         
         [Space] [Header("Auto Level Properties")]
         public float autoLevelForce = 2f;
+        public float cyclicForceMultiplier = 1000f;
         
         private Vector3 flatForward, flatRight;
         private float forwardDot, rightDot;
-        #endregion
-
-
-
-        #region Builtin Methods
-        private void Start() {
-            
-        }
         #endregion
         
         
@@ -54,7 +47,16 @@ namespace WheelApps {
             rb.AddRelativeTorque(cyclicZForce * Vector3.forward, ForceMode.Acceleration);
             
             var cyclicXForce = -input.Cyclic.y * cyclicForce;
-            rb.AddRelativeTorque(cyclicZForce * Vector3.right, ForceMode.Acceleration);
+            rb.AddRelativeTorque(cyclicXForce * Vector3.right, ForceMode.Acceleration);
+
+
+            var forwardVector = flatForward * forwardDot;
+            var rightVector = flatRight * rightDot;
+            var finalCyclicForce = cyclicForce * cyclicForceMultiplier * Vector3.ClampMagnitude(forwardVector + rightVector, 1f);
+            
+            // Debug.DrawRay(transform.position, finalCyclicDirection, Color.green);
+            
+            rb.AddForce(finalCyclicForce, ForceMode.Force);
         }
 
 
