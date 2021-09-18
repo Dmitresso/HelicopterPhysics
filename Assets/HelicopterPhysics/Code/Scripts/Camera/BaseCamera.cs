@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 
 namespace WheelApps {
-    public class BaseHelicopterCamera : MonoBehaviour {
+    public class BaseCamera : MonoBehaviour {
         #region Variables
         [Header("Base Camera Properties")]
         public Rigidbody rb;

@@ -1,7 +1,5 @@
-﻿using System;
-
-namespace WheelApps {
-    public class AdvancedHelicopterCamera : BaseHelicopterCamera, IHelicopterCamera {
+﻿namespace WheelApps {
+    public class AdvancedCamera : BaseCamera, IHelicopterCamera {
         #region Variables
         #endregion
 

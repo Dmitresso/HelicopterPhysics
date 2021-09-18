@@ -2,7 +2,7 @@
 
 
 namespace WheelApps {
-    public class HelicopterCamera : BaseHelicopterCamera, IHelicopterCamera {
+    public class Camera : BaseCamera, IHelicopterCamera {
         #region Variables
         [Header("Helicopter Camera Properties")]
         public float height = 2f;
@@ -15,6 +15,11 @@ namespace WheelApps {
         #region Builtin Methods
         private void Start() {
             updateEvent.AddListener(UpdateCamera);
+        }
+
+
+        private void OnDisable() {
+            updateEvent.RemoveListener(UpdateCamera);
         }
         #endregion
         
