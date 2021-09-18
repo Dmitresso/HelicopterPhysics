@@ -2,24 +2,19 @@
 
 
 namespace WheelApps {
-    public class HelicopterCamera : MonoBehaviour, IHelicopterCamera {
+    public class HelicopterCamera : BaseHelicopterCamera, IHelicopterCamera {
         #region Variables
-        [Header("Camera Properties")]
-        public Rigidbody rb;
-        public Transform lookAtTarget;
+        [Header("Helicopter Camera Properties")]
         public float height = 2f;
         public float distance = 2f;
         public float smoothSpeed = 0.35f;
-
-        private Vector3 targetPosition;
-        private Vector3 refVelocity;
         #endregion
 
 
         
         #region Builtin Methods
-        private void FixedUpdate() {
-            if (rb) UpdateCamera();
+        private void Start() {
+            updateEvent.AddListener(UpdateCamera);
         }
         #endregion
         
