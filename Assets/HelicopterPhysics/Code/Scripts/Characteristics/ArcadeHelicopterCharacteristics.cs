@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 
+
 namespace WheelApps {
     public class ArcadeHelicopterCharacteristics : HelicopterCharacteristics {
         #region Variables
+        private float xRotation;
+        private float yRotation;
+        private float zRotation;
         #endregion
 
 
@@ -31,6 +35,9 @@ namespace WheelApps {
 
         protected override void HandlePedals(Rigidbody rb, InputController input) {
             //base.HandlePedals(rb, input);
+            yRotation += input.Pedal * tailForce;
+            var targetRotation = Quaternion.Euler(0f, yRotation, 0f);
+            rb.MoveRotation(targetRotation);
         }
         #endregion
     }
