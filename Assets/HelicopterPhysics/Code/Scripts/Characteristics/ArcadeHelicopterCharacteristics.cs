@@ -13,7 +13,7 @@ namespace WheelApps {
 
         #region Custom Methods
         protected override void HandleLift(Rigidbody rb, InputController input) {
-            //base.HandleLift(rb, input);
+            base.HandleLift(rb, input);
         }
 
         
