@@ -16,7 +16,7 @@ namespace WheelApps {
 
 
         #region Builtin Methods
-        private void Start() {
+        private void OnEnable() {
             cameras = GetComponentsInChildren<BaseCamera>().ToList();
             if (startIndex >= cameras.Count) startIndex = cameras.Count - 1;
             currentCameraIndex = startIndex;

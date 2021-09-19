@@ -30,7 +30,7 @@ namespace WheelApps {
             var transform = this.transform;
             var rbPosition = rb.position;
             
-            targetPosition = rbPosition + targetFlatForward * distance + Vector3.up * height;
+            targetPosition = rbPosition + -targetFlatForward * distance + Vector3.up * height;
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref refVelocity, smoothSpeed);
             transform.LookAt(lookAtTarget);
