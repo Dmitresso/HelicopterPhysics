@@ -22,6 +22,10 @@ namespace WheelApps {
         
         protected override void HandleCyclic(Rigidbody rb, InputController input) {
             //base.HandleCyclic(rb, input);
+            var forwardDirection = input.Cyclic.y * flatForward;
+            var rightDirection = input.Cyclic.x * flatRight;
+            var finalDirection = (forwardDirection + rightDirection).normalized;
+            rb.AddForce(cyclicForce * finalDirection, ForceMode.Acceleration);
         }
 
 
