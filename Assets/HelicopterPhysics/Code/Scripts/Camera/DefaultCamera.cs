@@ -2,7 +2,7 @@
 
 
 namespace WheelApps {
-    public class Camera : BaseCamera, IHelicopterCamera {
+    public class DefaultCamera : BaseCamera, IHelicopterCamera {
         #region Variables
         [Header("Helicopter Camera Properties")]
         public float height = 2f;

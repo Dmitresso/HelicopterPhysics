@@ -10,6 +10,7 @@ namespace WheelApps {
         public int startIndex;
         
         private List<BaseCamera> cameras = new List<BaseCamera>();
+        private List<Camera> _cameras = new List<Camera>();
         private int currentCameraIndex;
         #endregion
 
@@ -18,6 +19,7 @@ namespace WheelApps {
         #region Builtin Methods
         private void OnEnable() {
             cameras = GetComponentsInChildren<BaseCamera>().ToList();
+            foreach (var camera in cameras) _cameras.Add(camera.GetComponent<Camera>());
             if (startIndex >= cameras.Count) startIndex = cameras.Count - 1;
             currentCameraIndex = startIndex;
             SwitchCamera(startIndex);
@@ -40,13 +42,11 @@ namespace WheelApps {
 
         private void HandleSwitch(int index = -1) {
             if (index >= 0) currentCameraIndex = index;
-            if (currentCameraIndex == cameras.Count) currentCameraIndex = 0; 
+            if (currentCameraIndex == _cameras.Count) currentCameraIndex = 0; 
             
-            for (var i = 0; i < cameras.Count; i++) {
-                cameras[i].gameObject.SetActive(false);
-                if (i == currentCameraIndex) {
-                    cameras[currentCameraIndex].gameObject.SetActive(true);
-                }
+            for (var i = 0; i < _cameras.Count; i++) {
+                _cameras[i].enabled = false;
+                if (i == currentCameraIndex) _cameras[currentCameraIndex].enabled = true;
             }
         }
         #endregion

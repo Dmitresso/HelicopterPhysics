@@ -5,6 +5,7 @@ namespace WheelApps {
     public class CockpitCamera : BaseCamera, IHelicopterCamera {
         #region Variables
         [Header("Cockpit Camera Properties")]
+        public Transform cockpitPosition;
         public Vector3 offset = Vector3.zero;
         public float fov = 55f;
         
@@ -15,7 +16,6 @@ namespace WheelApps {
         
         #region Builtin Methods
         private void OnEnable() {
-            startOffset = transform.position - rb.position;
             updateEvent.AddListener(UpdateCamera);
         }
 
@@ -29,7 +29,8 @@ namespace WheelApps {
 
         #region Interface Methods
         public void UpdateCamera() {
-            transform.position = rb.position + startOffset;
+            if (!cockpitPosition) return;
+            transform.position = cockpitPosition.position;
             transform.LookAt(lookAtTarget);
         }
         #endregion
