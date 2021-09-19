@@ -11,6 +11,7 @@ namespace WheelApps {
         
         protected Vector3 targetPosition;
         protected Vector3 refVelocity;
+        protected Vector3 targetFlatForward;
         protected UnityEvent updateEvent = new UnityEvent();
         #endregion
 
@@ -18,7 +19,19 @@ namespace WheelApps {
 
         #region Builtin Methods
         private void FixedUpdate() {
-            if (rb) updateEvent?.Invoke();
+            if (!rb) return;
+            CalculateFlatForward();
+            updateEvent?.Invoke();
+        }
+        #endregion
+
+
+
+        #region Custom Methods
+        private void CalculateFlatForward() {
+            targetFlatForward = rb.transform.forward;
+            targetFlatForward.y = 0f;
+            targetFlatForward = targetFlatForward.normalized;
         }
         #endregion
     }

@@ -9,12 +9,18 @@ namespace WheelApps {
         public float minDistance = 4f;
         public float maxDistance = 8f;
         public float catchUpModifier = 5f;
+        public float rotationSpeed = 5f;
+        public float minOrientVelocity = 5f;
+        
+        
+        private float finalAngle;
+        private Vector3 targetDirection;
         #endregion
 
 
 
         #region Builtin Methods
-        private void Start() {
+        private void OnEnable() {
             updateEvent.AddListener(UpdateCamera);
         }
 
@@ -28,20 +34,28 @@ namespace WheelApps {
 
         #region Interface Methods
         public void UpdateCamera() {
-            var targetDirection = transform.position - rb.position;
-            targetDirection.y = 0f;
-            var normalizedDirection = targetDirection.normalized;
-            // Debug.DrawRay(rb.position, targetDirection, Color.green);
+            var directionToTarget = transform.position - rb.position;
+            directionToTarget.y = 0f;
+            var normalizedDirection = directionToTarget.normalized;
+            targetDirection = normalizedDirection;
+
             
-            targetPosition = rb.position + targetDirection;
-            var currentMagnitude = targetDirection.magnitude;
-            if (targetDirection.magnitude < minDistance) {
+            var angleToForward = Vector3.SignedAngle(normalizedDirection, targetFlatForward, Vector3.up);
+            var targetAngle = 0f;
+            if (rb.velocity.magnitude > minOrientVelocity) targetAngle = angleToForward * Time.fixedDeltaTime;
+            finalAngle = Mathf.Lerp(finalAngle, targetAngle, rotationSpeed * Time.fixedDeltaTime);
+            targetDirection = Quaternion.AngleAxis(finalAngle, Vector3.up) * targetDirection;
+            
+            
+            targetPosition = rb.position + targetDirection * directionToTarget.magnitude;
+            var currentMagnitude = directionToTarget.magnitude;
+            if (currentMagnitude < minDistance) {
                 var delta = minDistance - currentMagnitude;
-                targetPosition += normalizedDirection * delta * catchUpModifier * Time.fixedDeltaTime;
+                targetPosition += targetDirection * delta * catchUpModifier * Time.fixedDeltaTime;
             }
-            if (targetDirection.magnitude > maxDistance) {
+            if (currentMagnitude > maxDistance) {
                 var delta = currentMagnitude - maxDistance;
-                targetPosition -= normalizedDirection * delta * catchUpModifier * Time.fixedDeltaTime;
+                targetPosition -= targetDirection * delta * catchUpModifier * Time.fixedDeltaTime;
             }
             
             

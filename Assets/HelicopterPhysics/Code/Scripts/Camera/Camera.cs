@@ -13,7 +13,7 @@ namespace WheelApps {
 
         
         #region Builtin Methods
-        private void Start() {
+        private void OnEnable() {
             updateEvent.AddListener(UpdateCamera);
         }
 
@@ -30,13 +30,9 @@ namespace WheelApps {
             var transform = this.transform;
             var rbPosition = rb.position;
             
-            var flatForward = rb.transform.forward;
-            flatForward.y = 0f;
-            flatForward = flatForward.normalized;
+            targetPosition = rbPosition + targetFlatForward * distance + Vector3.up * height;
 
-            targetPosition = rbPosition + flatForward * distance + Vector3.up * height;
-
-            transform.position = Vector3.SmoothDamp(rbPosition, targetPosition, ref refVelocity, smoothSpeed);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref refVelocity, smoothSpeed);
             transform.LookAt(lookAtTarget);
         }
         #endregion
