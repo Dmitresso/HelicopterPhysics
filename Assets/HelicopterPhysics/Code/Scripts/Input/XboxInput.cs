@@ -31,6 +31,11 @@
         protected override void HandlePedal() {
             pedal = UnityEngine.Input.GetAxis(Input.XboxPedal);
         }
+        
+        
+        protected override void HandleCameraButton() {
+            cameraButton = UnityEngine.Input.GetButtonDown(Input.XboxCameraButton);
+        }
         #endregion
     }
 }

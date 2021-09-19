@@ -17,7 +17,7 @@ namespace WheelApps {
         private void Start() {
             cameras = GetComponentsInChildren<BaseCamera>().ToList();
             foreach (var camera in cameras) {
-                Debug.Log(camera.gameObject.name);
+                // Debug.Log(camera.gameObject.name);
             }
         }
 
@@ -26,7 +26,9 @@ namespace WheelApps {
 
 
         #region Custom Methods
-
+        public void SwitchCamera() {
+            Debug.Log("Camera Switch called");
+        }
         #endregion
     }
 }

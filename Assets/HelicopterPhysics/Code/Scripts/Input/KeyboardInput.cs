@@ -1,27 +1,37 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace WheelApps {
     public class KeyboardInput : BaseHelicopterInput {
         #region Variables
-        [Header("Keyboard Inputs")]
-        protected float rawThrottle;
-        protected float collective;
-        protected Vector2 cyclic = Vector2.zero;
-        protected float pedal;
-        protected float stickyThrottle;
-        protected float stickyCollective;
+        [Header("Camera Input Properties")]
+        public KeyCode camButton = Input.cameraButton;
         #endregion
 
 
 
         #region Properties
+        protected float rawThrottle;
         public float RawThrottle => rawThrottle;
+        
+        protected float collective;
         public float Collective => collective;
+        
+        protected Vector2 cyclic = Vector2.zero;
         public Vector2 Cyclic => cyclic;
+        
+        protected float pedal;
         public float Pedal => pedal;
+        
+        protected float stickyThrottle;
         public float StickyThrottle => stickyThrottle;
+        
+        protected float stickyCollective;
         public float StickyCollective => stickyCollective;
+
+        protected bool cameraButton;
+        public bool CameraButton => cameraButton;
         #endregion
         
         
@@ -40,6 +50,7 @@ namespace WheelApps {
             HandlePedal();
             HandleStickyThrottle();
             HandleStickyCollective();
+            HandleCameraButton();
             
             ClampInputs();
         }
@@ -66,6 +77,11 @@ namespace WheelApps {
         }
 
 
+        protected virtual void HandleCameraButton() {
+            cameraButton = UnityEngine.Input.GetKeyDown(camButton);
+        }
+
+        
         protected void HandleStickyThrottle() {
             stickyThrottle += rawThrottle * Time.deltaTime;
             stickyThrottle = Mathf.Clamp(stickyThrottle, 0f, 1f);

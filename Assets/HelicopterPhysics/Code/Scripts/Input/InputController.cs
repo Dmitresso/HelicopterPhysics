@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace WheelApps {
@@ -15,26 +16,38 @@ namespace WheelApps {
         [Header("Input Properties")]        
         public InputType inputType = InputType.Keyboard;
 
+        [Header("Input Events")]
+        public UnityEvent onCameraButtonPressed = new UnityEvent();
+
+        
+        
         private KeyboardInput keyboardInput;
         private XboxInput xboxInput;
-
-        private float throttle;
-        private float collective;
-        private Vector2 cyclic;
-        private float pedal;
-        private float stickyThrottle;
-        private float stickyCollective;
         #endregion
 
 
 
         #region Properties
+                private float throttle;
         public float Throttle => throttle;
+        
+        private float collective;        
         public float Collective => collective;
+        
+        private Vector2 cyclic;        
         public Vector2 Cyclic => cyclic;
+        
+        private float pedal;        
         public float Pedal => pedal;
+        
+        private float stickyThrottle;        
         public float StickyThrottle => stickyThrottle;
+        
+        private float stickyCollective;        
         public float StickyCollective => stickyCollective;
+
+        private bool cameraButton;
+        public bool CameraButton => cameraButton;
         #endregion
         
         
@@ -56,6 +69,7 @@ namespace WheelApps {
                     pedal = keyboardInput.Pedal;
                     stickyThrottle = keyboardInput.StickyThrottle;
                     stickyCollective = keyboardInput.StickyCollective;
+                    cameraButton = keyboardInput.CameraButton;
                     break;
                 case InputType.Xbox:
                     throttle = xboxInput.RawThrottle;
@@ -64,10 +78,13 @@ namespace WheelApps {
                     pedal = xboxInput.Pedal;
                     stickyThrottle = xboxInput.StickyThrottle;
                     stickyCollective = xboxInput.StickyCollective;
+                    cameraButton = xboxInput.CameraButton;
                     break;
                 case InputType.Mobile:
                     break;
             }
+
+            if (cameraButton) onCameraButtonPressed?.Invoke();
         }
         #endregion
 
@@ -75,6 +92,7 @@ namespace WheelApps {
 
         #region Custom Methods
         private void SetInput(InputType type) {
+            inputType = type;
             switch (type) {
                 case InputType.Keyboard:
                     keyboardInput.enabled = true;
