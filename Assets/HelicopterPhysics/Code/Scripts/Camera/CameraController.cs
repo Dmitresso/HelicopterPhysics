@@ -7,7 +7,7 @@ namespace WheelApps {
     public class CameraController : MonoBehaviour {
         #region Variables
         [Header("Cameras Properties")]
-        public int startIndex = 1;
+        public int startIndex;
         
         private List<BaseCamera> cameras = new List<BaseCamera>();
         private int currentCameraIndex;
@@ -20,6 +20,7 @@ namespace WheelApps {
             cameras = GetComponentsInChildren<BaseCamera>().ToList();
             if (startIndex >= cameras.Count) startIndex = cameras.Count - 1;
             currentCameraIndex = startIndex;
+            SwitchCamera(startIndex);
         }
         #endregion
 
@@ -33,16 +34,19 @@ namespace WheelApps {
 
 
         public void SwitchCamera(int index) {
-            HandleSwitch();
+            HandleSwitch(index);
         }
 
 
-        private void HandleSwitch() {
+        private void HandleSwitch(int index = -1) {
+            if (index >= 0) currentCameraIndex = index;
             if (currentCameraIndex == cameras.Count) currentCameraIndex = 0; 
+            
             for (var i = 0; i < cameras.Count; i++) {
-                var currentCamera = cameras[currentCameraIndex].gameObject;
-                currentCamera.SetActive(false);
-                if (i == currentCameraIndex) currentCamera.SetActive(true);
+                cameras[i].gameObject.SetActive(false);
+                if (i == currentCameraIndex) {
+                    cameras[currentCameraIndex].gameObject.SetActive(true);
+                }
             }
         }
         #endregion
