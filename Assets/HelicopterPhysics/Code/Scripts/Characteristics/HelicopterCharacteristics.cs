@@ -18,8 +18,8 @@ namespace WheelApps {
         public float autoLevelForce = 2f;
         public float cyclicForceMultiplier = 1000f;
         
-        private Vector3 flatForward, flatRight;
-        private float forwardDot, rightDot;
+        protected Vector3 flatForward, flatRight;
+        protected float forwardDot, rightDot;
         #endregion
         
         
