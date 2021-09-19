@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HelicopterPhysics.Code.Data;
+using UnityEngine;
+using UnityEngine.Video;
 
 
 namespace WheelApps {
@@ -6,6 +8,7 @@ namespace WheelApps {
         #region Variables
         [Header("Advanced Camera Properties")]
         public float height = 4f;
+        public float minGroundHeight = 4f;
         public float minDistance = 4f;
         public float maxDistance = 8f;
         public float catchUpModifier = 5f;
@@ -15,6 +18,8 @@ namespace WheelApps {
         
         private float finalAngle;
         private Vector3 targetDirection;
+        private float finalHeight;
+
         #endregion
 
 
@@ -57,9 +62,18 @@ namespace WheelApps {
                 var delta = currentMagnitude - maxDistance;
                 targetPosition -= targetDirection * delta * catchUpModifier * Time.fixedDeltaTime;
             }
+
+            var targetHeight = height;
+            RaycastHit hit;
+            var groundRay = new Ray(transform.position, Vector3.down);
+            if (Physics.Raycast(groundRay, out hit, 100f)) {
+                if (hit.transform.CompareTag(Tags.Ground) && hit.distance < minGroundHeight) {
+                    targetHeight = minGroundHeight - hit.distance;
+                }
+            }
+            finalHeight = Mathf.Lerp(finalHeight, targetHeight, Time.fixedDeltaTime);
             
-            
-            transform.position = targetPosition + height * Vector3.up;
+            transform.position = targetPosition + finalHeight * Vector3.up;
             transform.LookAt(lookAtTarget);
         }
         #endregion

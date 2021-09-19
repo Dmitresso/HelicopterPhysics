@@ -1777,6 +1777,7 @@ MonoBehaviour:
   rb: {fileID: 7147384155194228275}
   lookAtTarget: {fileID: 1738378426}
   height: 4
+  minGroundHeight: 4
   minDistance: 4
   maxDistance: 8
   catchUpModifier: 5
@@ -2217,7 +2218,7 @@ GameObject:
   - component: {fileID: 1339295647}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
