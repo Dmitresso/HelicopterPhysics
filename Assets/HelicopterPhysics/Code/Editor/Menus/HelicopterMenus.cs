@@ -13,11 +13,12 @@ namespace WheelApps {
             var collisionGRP = new GameObject("Collision_GRP");
             var engineGRP = new GameObject("Engine_GRP");
             var rotorGRP = new GameObject("Rotor_GRP");
-            
-            SetupRotorGRP(rotorGRP);
-            SetupEngineGRP(engineGRP);
-            
+
             var currentController = currentHelicopter.GetComponent<HelicopterController>();
+            
+            SetupRotorGRP(rotorGRP, currentController);
+            SetupEngineGRP(engineGRP, currentController);
+
 
             currentCOM.transform.SetParent(currentHelicopter.transform);
             audioGRP.transform.SetParent(currentHelicopter.transform);
@@ -32,8 +33,10 @@ namespace WheelApps {
         }
 
 
-        public static void SetupRotorGRP(GameObject rotorGO) {
-            rotorGO.AddComponent<RotorController>();
+        public static void SetupRotorGRP(GameObject rotorGO, HelicopterController controller) {
+            var rotorController = rotorGO.AddComponent<RotorController>();
+            controller.rotorController = rotorController;
+            
             var mainGRP = new GameObject("MainRotor");
             var tailGRP = new GameObject("TailRotor");
             mainGRP.AddComponent<MainHelicopterRotor>();
@@ -43,9 +46,10 @@ namespace WheelApps {
         }
 
 
-        public static void SetupEngineGRP(GameObject engineGO) {
+        public static void SetupEngineGRP(GameObject engineGO, HelicopterController controller) {
             var engineGRP = new GameObject("MainEngine");
-            engineGRP.AddComponent<HelicopterEngine>();
+            var engine = engineGRP.AddComponent<HelicopterEngine>();
+            controller.engines.Add(engine);
             engineGRP.transform.SetParent(engineGO.transform);
         }
     }
