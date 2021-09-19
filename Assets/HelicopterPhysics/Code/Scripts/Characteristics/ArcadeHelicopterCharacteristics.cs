@@ -13,7 +13,10 @@ namespace WheelApps {
 
         #region Custom Methods
         protected override void HandleLift(Rigidbody rb, InputController input) {
-            base.HandleLift(rb, input);
+            // base.HandleLift(rb, input);
+            var liftForce = Physics.gravity.magnitude * rb.mass * transform.up;
+            rb.AddForce(liftForce, ForceMode.Force);
+            rb.AddForce(input.Throttle * maxLiftForce * Vector3.up, ForceMode.Acceleration);
         }
 
         

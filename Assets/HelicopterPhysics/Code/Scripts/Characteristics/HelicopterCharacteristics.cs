@@ -9,14 +9,14 @@ namespace WheelApps {
         public MainHelicopterRotor mainRotor;
 
         [Space] [Header("Tail Rotor Properties")]
-        public float tailForce = 2000f;
+        public float tailForce = 3f;
 
         [Space] [Header("Cyclic Properties")]
         public float cyclicForce = 2f;
         
         [Space] [Header("Auto Level Properties")]
         public float autoLevelForce = 2f;
-        public float cyclicForceMultiplier = 1000f;
+        public float cyclicForceMultiplier = 10f;
         
         protected Vector3 flatForward, flatRight;
         protected float forwardDot, rightDot;
