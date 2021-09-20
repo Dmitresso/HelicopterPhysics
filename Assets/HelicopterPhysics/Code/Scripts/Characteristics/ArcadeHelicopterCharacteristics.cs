@@ -4,9 +4,11 @@
 namespace WheelApps {
     public class ArcadeHelicopterCharacteristics : HelicopterCharacteristics {
         #region Variables
-        private float xRotation;
-        private float yRotation;
-        private float zRotation;
+        [Header("Arcade Properties")]
+        public float bankAngle = 35f;
+        
+        private float xRotation, yRotation, zRotation;
+        private Quaternion finalRotation = Quaternion.identity;
         #endregion
 
 
@@ -17,27 +19,32 @@ namespace WheelApps {
 
         #region Custom Methods
         protected override void HandleLift(Rigidbody rb, InputController input) {
-            // base.HandleLift(rb, input);
-            var liftForce = Physics.gravity.magnitude * rb.mass * transform.up;
+            var liftForce = Physics.gravity.magnitude * rb.mass * Vector3.up;
             rb.AddForce(liftForce, ForceMode.Force);
             rb.AddForce(input.Throttle * maxLiftForce * Vector3.up, ForceMode.Acceleration);
         }
 
         
         protected override void HandleCyclic(Rigidbody rb, InputController input) {
-            //base.HandleCyclic(rb, input);
             var forwardDirection = input.Cyclic.y * flatForward;
             var rightDirection = input.Cyclic.x * flatRight;
             var finalDirection = (forwardDirection + rightDirection).normalized;
             rb.AddForce(cyclicForce * finalDirection, ForceMode.Acceleration);
+
+            xRotation = input.Cyclic.y * bankAngle;
+            zRotation = -input.Cyclic.x * bankAngle;
         }
 
 
         protected override void HandlePedals(Rigidbody rb, InputController input) {
-            //base.HandlePedals(rb, input);
             yRotation += input.Pedal * tailForce;
-            var targetRotation = Quaternion.Euler(0f, yRotation, 0f);
-            rb.MoveRotation(targetRotation);
+        }
+
+
+        protected override void AutoLevel(Rigidbody rb) {
+            var targetRotation = Quaternion.Euler(xRotation, yRotation, zRotation);
+            finalRotation = Quaternion.Slerp(finalRotation, targetRotation, Time.fixedDeltaTime * 1.5f);
+            rb.MoveRotation(finalRotation);
         }
         #endregion
     }

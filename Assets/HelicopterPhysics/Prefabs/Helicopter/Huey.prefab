@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 140
-  maxRPM: 2700
+  maxRPM: 1000
   powerDelay: 2
   powerCurve:
     serializedVersion: 2
@@ -2511,7 +2511,7 @@ MonoBehaviour:
   weightInLbs: 3000
   com: {fileID: 399943484435578465}
   engines:
-  - {fileID: 0}
+  - {fileID: 399943483354682023}
   rotorController: {fileID: 0}
 --- !u!114 &7348124953939256443
 MonoBehaviour:
@@ -2525,12 +2525,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576fdb5e536244bf9e252f58b6b905a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiftForce: 10
-  mainRotor: {fileID: 0}
-  tailForce: 2000
+  maxLiftForce: 1
+  mainRotor: {fileID: 3986752373140785768}
+  tailForce: 3
   cyclicForce: 2
   autoLevelForce: 2
-  cyclicForceMultiplier: 1000
+  cyclicForceMultiplier: 0.1
 --- !u!1 &399943484287450467
 GameObject:
   m_ObjectHideFlags: 0

@@ -86,7 +86,7 @@ namespace WheelApps {
         }
 
 
-        private void AutoLevel(Rigidbody rb) {
+        protected virtual void AutoLevel(Rigidbody rb) {
             var rightForce = -forwardDot * autoLevelForce;
             var forwardForce = rightDot * autoLevelForce;
             
