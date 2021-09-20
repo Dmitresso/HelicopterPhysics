@@ -6,6 +6,7 @@ namespace WheelApps {
         #region Variables
         [Header("Arcade Properties")]
         public float bankAngle = 35f;
+        public float bankSpeed = 4f;
         
         private float xRotation, yRotation, zRotation;
         private Quaternion finalRotation = Quaternion.identity;
@@ -43,7 +44,7 @@ namespace WheelApps {
 
         protected override void AutoLevel(Rigidbody rb) {
             var targetRotation = Quaternion.Euler(xRotation, yRotation, zRotation);
-            finalRotation = Quaternion.Slerp(finalRotation, targetRotation, Time.fixedDeltaTime * 1.5f);
+            finalRotation = Quaternion.Slerp(finalRotation, targetRotation, Time.fixedDeltaTime * bankSpeed);
             rb.MoveRotation(finalRotation);
         }
         #endregion
