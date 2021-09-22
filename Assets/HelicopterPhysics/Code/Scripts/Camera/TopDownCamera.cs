@@ -8,6 +8,11 @@ namespace WheelApps {
         public float height = 120f;
         public float distance = 80f;
         public float leadDistance = 0.25f;
+        public float smoothTime = 0.15f;
+
+        private Vector3 finalPosition;
+        private Vector3 finalLead;
+        private Vector3 refLeadVelocity;
         #endregion
 
 
@@ -34,9 +39,12 @@ namespace WheelApps {
 
             var lead = rb.velocity;
             lead.y = 0f;
-            
+
+            finalPosition = Vector3.SmoothDamp(finalPosition, targetPos + targetPosition, ref refVelocity, smoothTime);
             transform.position = targetPos + targetPosition;
-            transform.LookAt(lookAtTarget.position + lead * leadDistance);
+
+            finalLead = Vector3.SmoothDamp(finalLead, lead * leadDistance, ref refLeadVelocity, smoothTime);
+            transform.LookAt(lookAtTarget.position + finalLead);
         }
         #endregion
     }
