@@ -5,8 +5,9 @@ namespace WheelApps {
     public class TopDownCamera : BaseCamera, IHelicopterCamera {
         #region Variables
         [Header("Top Down Camera Properties")]
-        public float height = 4f;
-        public float distance = 4f;
+        public float height = 120f;
+        public float distance = 80f;
+        public float leadDistance = 0.25f;
         #endregion
 
 
@@ -30,8 +31,12 @@ namespace WheelApps {
             targetPos.y = 0f;
 
             targetPosition = Vector3.back * - distance + Vector3.up * height;
+
+            var lead = rb.velocity;
+            lead.y = 0f;
+            
             transform.position = targetPos + targetPosition;
-            transform.LookAt(lookAtTarget.position);
+            transform.LookAt(lookAtTarget.position + lead * leadDistance);
         }
         #endregion
     }
