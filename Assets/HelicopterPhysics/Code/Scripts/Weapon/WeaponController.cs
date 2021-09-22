@@ -2,8 +2,10 @@ using UnityEngine;
 
 
 namespace WheelApps {
-    public class WeaponController : MonoBehaviour, IWeapon {
+    public class WeaponController : MonoBehaviour {
         #region Variables
+        [Header("Weapon Controller Properties")]
+        public bool fireAllowed = true;
         #endregion
 
 
@@ -12,17 +14,6 @@ namespace WheelApps {
         #endregion
 
 
-        
-        #region Interface Methods
-        public void FireWeapon() {
-        }
-
-        
-        public void Reload() {
-        }        
-        #endregion
-        
-        
 
         #region Custom Methods
         #endregion
