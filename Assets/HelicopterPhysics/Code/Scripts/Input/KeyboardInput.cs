@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 
 namespace WheelApps {
@@ -7,6 +6,7 @@ namespace WheelApps {
         #region Variables
         [Header("Camera Input Properties")]
         public KeyCode camButton = Input.cameraButton;
+        public KeyCode fireButton = Input.fireButton;
         #endregion
 
 
@@ -32,6 +32,9 @@ namespace WheelApps {
 
         protected bool cameraButton;
         public bool CameraButton => cameraButton;
+
+        protected bool fire;
+        public bool Fire => fire;
         #endregion
         
         
@@ -51,6 +54,7 @@ namespace WheelApps {
             HandleStickyThrottle();
             HandleStickyCollective();
             HandleCameraButton();
+            HandleFireButton();
             
             ClampInputs();
         }
@@ -77,28 +81,33 @@ namespace WheelApps {
         }
 
 
-        protected virtual void HandleCameraButton() {
-            cameraButton = UnityEngine.Input.GetKeyDown(camButton);
-        }
-
-        
         protected void HandleStickyThrottle() {
             stickyThrottle += rawThrottle * Time.deltaTime;
             stickyThrottle = Mathf.Clamp(stickyThrottle, 0f, 1f);
         }
 
-        
+
         protected void HandleStickyCollective() {
             stickyCollective += collective * Time.deltaTime;
             stickyCollective = Mathf.Clamp01(stickyCollective);
         }
 
-        
+
         protected void ClampInputs() {
             rawThrottle = Mathf.Clamp(rawThrottle, -1f, 1f);
             collective = Mathf.Clamp(collective, -1f, 1f);
             cyclic = Vector2.ClampMagnitude(cyclic, 1f);
             pedal = Mathf.Clamp(pedal, -1f, 1f);
+        }
+
+        
+        protected virtual void HandleCameraButton() {
+            cameraButton = UnityEngine.Input.GetKeyDown(camButton);
+        }
+
+        
+        protected virtual void HandleFireButton() {
+            fire = UnityEngine.Input.GetKey(Input.fireButton);
         }
         #endregion
     }

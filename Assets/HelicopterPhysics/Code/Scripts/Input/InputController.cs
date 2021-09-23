@@ -48,6 +48,9 @@ namespace WheelApps {
 
         private bool cameraButton;
         public bool CameraButton => cameraButton;
+        
+        private bool fire;
+        public bool Fire => fire;
         #endregion
         
         
@@ -67,9 +70,10 @@ namespace WheelApps {
                     collective = keyboardInput.Collective;
                     cyclic = keyboardInput.Cyclic;
                     pedal = keyboardInput.Pedal;
-                    stickyThrottle = keyboardInput.StickyThrottle;
+                    stickyThrottle = keyboardInput.StickyThrottle; 
                     stickyCollective = keyboardInput.StickyCollective;
                     cameraButton = keyboardInput.CameraButton;
+                    fire = keyboardInput.Fire;
                     break;
                 case InputType.Xbox:
                     throttle = xboxInput.RawThrottle;
@@ -79,6 +83,7 @@ namespace WheelApps {
                     stickyThrottle = xboxInput.StickyThrottle;
                     stickyCollective = xboxInput.StickyCollective;
                     cameraButton = xboxInput.CameraButton;
+                    fire = xboxInput.Fire;
                     break;
                 case InputType.Mobile:
                     break;

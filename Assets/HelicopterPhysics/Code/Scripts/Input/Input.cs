@@ -4,6 +4,7 @@
 namespace WheelApps {
     public struct Input {
         public static KeyCode cameraButton = KeyCode.C;
+        public static KeyCode fireButton = KeyCode.Space;
         
         public const string Horizontal = "Horizontal";
         public const string Vertical = "Vertical";
@@ -18,5 +19,6 @@ namespace WheelApps {
         public const string XboxThrottleUp = "XboxThrottleUp";
         public const string XboxThrottleDown = "XboxThrottleDown";
         public const string XboxCameraButton = "XboxCameraButton";
+        public const string XboxFireButton = "XboxFireButton";
     }
 }

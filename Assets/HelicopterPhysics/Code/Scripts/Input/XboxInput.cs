@@ -36,6 +36,11 @@
         protected override void HandleCameraButton() {
             cameraButton = UnityEngine.Input.GetButtonDown(Input.XboxCameraButton);
         }
+
+
+        protected override void HandleFireButton() {
+            fire = UnityEngine.Input.GetButtonDown(Input.XboxFireButton);
+        }
         #endregion
     }
 }
