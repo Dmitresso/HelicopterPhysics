@@ -28,7 +28,7 @@ namespace WheelApps {
         
         
         #region Interface Methods
-        public void FireWeapon() {
+        public void Fire() {
             if (currentAmmoCount != 0) {
                 HandleProjectile();
                 HandleAudio();

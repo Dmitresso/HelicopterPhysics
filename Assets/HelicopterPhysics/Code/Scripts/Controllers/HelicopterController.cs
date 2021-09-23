@@ -14,6 +14,7 @@ namespace WheelApps {
         
         private InputController input;
         private HelicopterCharacteristics characteristics;
+        private WeaponController weaponController;
         #endregion
 
 
@@ -23,6 +24,7 @@ namespace WheelApps {
             base.Start();
             input = GetComponent<InputController>();
             characteristics = GetComponent<HelicopterCharacteristics>();
+            weaponController = GetComponentInChildren<WeaponController>();
         }
         #endregion
 
@@ -34,6 +36,7 @@ namespace WheelApps {
             HandleEngines();
             HandleRotors();
             HandleCharacteristics();
+            HandleWeapons();
         }
 
 
@@ -50,6 +53,11 @@ namespace WheelApps {
 
         protected virtual void HandleCharacteristics() {
             if (characteristics) characteristics.UpdateCharacteristics(rb, input);
+        }
+
+
+        protected void HandleWeapons() {
+            if (weaponController) weaponController.UpdateWeapons(input);
         }
         #endregion
     }
