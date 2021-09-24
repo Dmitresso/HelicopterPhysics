@@ -11,6 +11,7 @@ namespace WheelApps {
         public int maxAmmoCount = 100;
         [Space(5)]
         public GameObject muzzleFlash;
+        public AudioClip fireClip;
         
         protected AudioSource audioSource;
         protected int currentAmmoCount;
@@ -21,8 +22,8 @@ namespace WheelApps {
 
         #region Builtin Methods
         private void Start() {
-            currentAmmoCount = maxAmmoCount;
             audioSource = GetComponent<AudioSource>();
+            currentAmmoCount = maxAmmoCount;
         }
         #endregion
 
@@ -61,8 +62,7 @@ namespace WheelApps {
 
 
         protected virtual void HandleAudio() {
-            if (!audioSource) return;
-            
+            if (audioSource && fireClip) audioSource.PlayOneShot(fireClip);
         }
 
 
