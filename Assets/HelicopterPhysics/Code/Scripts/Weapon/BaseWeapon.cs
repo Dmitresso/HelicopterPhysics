@@ -22,22 +22,15 @@ namespace WheelApps {
         #region Builtin Methods
         private void Start() {
             currentAmmoCount = maxAmmoCount;
+            audioSource = GetComponent<AudioSource>();
         }
         #endregion
 
         
         
         #region Interface Methods
-        public void Fire() {
-            if (currentAmmoCount != 0) {
-                HandleProjectile();
-                HandleAudio();
-                HandleVFX();
-
-                currentAmmoCount--;
-                currentAmmoCount = Mathf.Clamp(currentAmmoCount, 0, maxAmmoCount);
-            }
-            else Reload();
+        public virtual void FireWeapon() {
+            Fire();
         }
 
         
@@ -49,9 +42,21 @@ namespace WheelApps {
 
 
         #region Custom Methods
+        protected void Fire() {
+            if (currentAmmoCount != 0) {
+                HandleProjectile();
+                HandleAudio();
+                HandleVFX();
+
+                currentAmmoCount--;
+                currentAmmoCount = Mathf.Clamp(currentAmmoCount, 0, maxAmmoCount);
+            }
+            else Reload();
+        }
+        
+        
         protected virtual void HandleProjectile() {
-            if (!projectile) return;
-            
+            if (projectile) Instantiate(projectile, muzzlePosition.position, Quaternion.LookRotation(muzzlePosition.forward));
         }
 
 

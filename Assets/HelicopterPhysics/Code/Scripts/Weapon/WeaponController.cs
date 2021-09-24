@@ -26,8 +26,7 @@ namespace WheelApps {
         public void UpdateWeapons(InputController input) {
             if (!input.Fire || !fireAllowed) return;
             if (weapons.Count <= 0) return;
-            Debug.Log("Fire");
-            foreach (var weapon in weapons) weapon.Fire();
+            foreach (var weapon in weapons) weapon.FireWeapon();
         }
         #endregion
 

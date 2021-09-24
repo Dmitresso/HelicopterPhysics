@@ -1,6 +1,6 @@
 namespace WheelApps {
     public interface IWeapon {
-        public void Fire();
+        public void FireWeapon();
         public void Reload();
     }
 }
