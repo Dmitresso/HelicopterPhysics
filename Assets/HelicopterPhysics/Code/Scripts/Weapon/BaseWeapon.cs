@@ -10,7 +10,7 @@ namespace WheelApps {
         public GameObject projectile;
         public int maxAmmoCount = 100;
         [Space(5)]
-        public GameObject muzzleFlash;
+        public ParticleSystem muzzleFlash;
         public AudioClip fireClip;
         
         protected AudioSource audioSource;
@@ -67,7 +67,7 @@ namespace WheelApps {
 
 
         protected virtual void HandleVFX() {
-            if (!muzzleFlash) return;
+            if (muzzleFlash) muzzleFlash.Play();
             
         }
         #endregion

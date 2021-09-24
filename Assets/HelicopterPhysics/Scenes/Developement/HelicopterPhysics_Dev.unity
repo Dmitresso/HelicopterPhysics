@@ -7123,7 +7123,7 @@ MonoBehaviour:
   muzzlePosition: {fileID: 75454159}
   projectile: {fileID: 1455275906537712652, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
   maxAmmoCount: 100
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 750168142}
   fireClip: {fileID: 8300000, guid: 86c6a86b7a24a924588db0be475c813f, type: 3}
   fireRate: 0.15
   lastFireTime: 0
