@@ -2319,6 +2319,7 @@ MonoBehaviour:
   lastFireTime: 0
   barrelGO: {fileID: 8717636589941885519}
   rotationSpeed: 10
+  slowDownSpeed: 2
 --- !u!82 &5344333766865714649
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2560,7 +2561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5344615735326645820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5016,16 +5017,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00333
+      value: 0.0038
       objectReference: {fileID: 0}
     - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6588630976926582628, guid: c17dc3b6ccabeb14085dc4b914058804, type: 3}
       propertyPath: m_LocalRotation.w
