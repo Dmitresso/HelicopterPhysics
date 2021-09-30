@@ -44,7 +44,7 @@ namespace WheelApps {
             targetDirection = normalizedDirection;
 
             
-            var angleToForward = Vector3.SignedAngle(normalizedDirection, targetFlatForward, Vector3.up);
+            var angleToForward = Vector3.SignedAngle(normalizedDirection, -targetFlatForward, Vector3.up);
             var targetAngle = 0f;
             if (rb.velocity.magnitude > minOrientVelocity) targetAngle = angleToForward * Time.fixedDeltaTime;
             finalAngle = Mathf.Lerp(finalAngle, targetAngle, rotationSpeed * Time.fixedDeltaTime);
@@ -52,6 +52,7 @@ namespace WheelApps {
             
             
             targetPosition = rb.position + targetDirection * directionToTarget.magnitude;
+
             var currentMagnitude = directionToTarget.magnitude;
             if (currentMagnitude < minDistance) {
                 var delta = minDistance - currentMagnitude;
@@ -66,15 +67,15 @@ namespace WheelApps {
             RaycastHit hit;
             var groundRay = new Ray(transform.position, Vector3.down);
             if (Physics.Raycast(groundRay, out hit, 100f)) {
-                if (hit.transform.CompareTag(Tags.Ground) && hit.distance < minGroundHeight) {
-                    targetHeight = minGroundHeight - hit.distance;
+                if (hit.transform.CompareTag(Tags.Ground) && hit.distance <= minGroundHeight) {
+                    targetHeight += minGroundHeight - hit.distance;
                 }
             }
             finalHeight = Mathf.Lerp(finalHeight, targetHeight, Time.fixedDeltaTime);
+            #endregion
             
             transform.position = targetPosition + finalHeight * Vector3.up;
             transform.LookAt(lookAtTarget);
         }
-        #endregion
     }
 }
