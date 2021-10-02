@@ -5,8 +5,8 @@ namespace WheelApps {
     public class ArcadeHelicopterCharacteristics : HelicopterCharacteristics {
         #region Variables
         [Header("Arcade Properties")]
-        public float bankAngle = 35f;
-        public float bankSpeed = 4f;
+        public float bankAngle = 25f;
+        public float bankSpeed = 3f;
         
         private float xRotation, yRotation, zRotation;
         private Quaternion finalRotation = Quaternion.identity;
@@ -15,10 +15,20 @@ namespace WheelApps {
 
 
         #region Builtin Methods
+        private void Start() {
+            var t = this.transform.localRotation.eulerAngles;
+            
+            xRotation = t.x;
+            yRotation = t.y;
+            zRotation = t.z;
+            
+            finalRotation = Quaternion.Euler(xRotation, yRotation, zRotation);
+        }
         #endregion
-
-
+        
+        
         #region Custom Methods
+        // ups heli
         protected override void HandleLift(Rigidbody rb, InputController input) {
             var liftForce = Physics.gravity.magnitude * rb.mass * Vector3.up;
             rb.AddForce(liftForce, ForceMode.Force);

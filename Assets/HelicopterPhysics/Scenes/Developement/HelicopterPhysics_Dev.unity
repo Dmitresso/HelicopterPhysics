@@ -328,6 +328,17 @@ Transform:
   m_Father: {fileID: 1969732461}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191147480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8624300751304062150, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+  m_PrefabInstance: {fileID: 8624300750247992796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5ebf9edf19429db7ef569bc7153a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1205745217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1047,42 @@ PrefabInstance:
     - target: {fileID: 4431946289638040250, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
       propertyPath: m_Name
       value: Huey
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: bankAngle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: bankSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: mainRotor
+      value: 
+      objectReference: {fileID: 1191147480}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: tailForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: cyclicForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: maxLiftForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: autoLevelForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: cyclicForceMultiplier
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
