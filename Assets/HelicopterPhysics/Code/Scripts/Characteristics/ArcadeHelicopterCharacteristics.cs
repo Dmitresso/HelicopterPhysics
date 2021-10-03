@@ -16,7 +16,7 @@ namespace WheelApps {
 
         #region Builtin Methods
         private void Start() {
-            var t = this.transform.localRotation.eulerAngles;
+            var t = transform.localRotation.eulerAngles;
             
             xRotation = t.x;
             yRotation = t.y;
@@ -28,11 +28,10 @@ namespace WheelApps {
         
         
         #region Custom Methods
-        // ups heli
         protected override void HandleLift(Rigidbody rb, InputController input) {
             var liftForce = Physics.gravity.magnitude * rb.mass * Vector3.up;
-            rb.AddForce(liftForce, ForceMode.Force);
-            rb.AddForce(input.Throttle * maxLiftForce * Vector3.up, ForceMode.Acceleration);
+            //rb.AddForce(liftForce, ForceMode.Force);
+            //rb.AddForce(input.Throttle * maxLiftForce * Vector3.up, ForceMode.Acceleration);
         }
 
         

@@ -13,10 +13,11 @@ namespace WheelApps {
 
         [Space] [Header("Cyclic Properties")]
         public float cyclicForce = 2f;
-        
+        public float cyclicForceMultiplier = 10f;
+
         [Space] [Header("Auto Level Properties")]
         public float autoLevelForce = 2f;
-        public float cyclicForceMultiplier = 10f;
+
         
         protected Vector3 flatForward, flatRight;
         protected float forwardDot, rightDot;

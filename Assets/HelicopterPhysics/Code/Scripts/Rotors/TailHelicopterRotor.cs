@@ -6,9 +6,9 @@ namespace WheelApps {
         #region Variables
         [Header("Tail Rotor Properties")]
         public float rotationSpeedModifier = 1.5f;
+        public float maxPitch = 45f;
         public Transform lRotor;
         public Transform rRotor;
-        public float maxPitch = 45f;
         #endregion
 
 
