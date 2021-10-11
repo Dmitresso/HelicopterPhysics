@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 namespace WheelApps {
-    [RequireComponent(typeof(AudioSource))]
+    [RequireComponent(typeof(AudioSource), typeof(ProjectileManager))]
     public class BaseWeapon : MonoBehaviour, IWeapon {
         #region Variables
         [Header("Base Weapon Properties")]
@@ -12,16 +12,17 @@ namespace WheelApps {
         [Space(5)]
         public ParticleSystem muzzleFlash;
         public AudioClip fireClip;
-        
+
+        protected ProjectileManager projectileManager;
         protected AudioSource audioSource;
         protected int currentAmmoCount;
-
         #endregion
 
 
 
         #region Builtin Methods
         private void Start() {
+            projectileManager = GetComponent<ProjectileManager>();
             audioSource = GetComponent<AudioSource>();
             currentAmmoCount = maxAmmoCount;
         }
@@ -57,7 +58,8 @@ namespace WheelApps {
         
         
         protected virtual void HandleProjectile() {
-            if (projectile) Instantiate(projectile, muzzlePosition.position, Quaternion.LookRotation(muzzlePosition.forward));
+            projectileManager.Instantiate();
+            //if (projectile) Instantiate(projectile, muzzlePosition.position, Quaternion.LookRotation(muzzlePosition.forward));
         }
 
 
