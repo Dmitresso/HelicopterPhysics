@@ -29,6 +29,5 @@ namespace WheelApps {
             foreach (var weapon in weapons) weapon.FireWeapon();
         }
         #endregion
-
     }
 }
