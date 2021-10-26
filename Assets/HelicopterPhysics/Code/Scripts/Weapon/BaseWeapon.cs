@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 namespace WheelApps {
-    [RequireComponent(typeof(AudioSource), typeof(ProjectilePool))]
+    [RequireComponent(typeof(AudioSource))]
     public class BaseWeapon : MonoBehaviour, IWeapon {
         #region Variables
         [Header("Base Weapon Properties")]
@@ -58,7 +58,7 @@ namespace WheelApps {
         
         
         protected virtual void HandleProjectile() {
-            projectilePool.GetPooledObject(true);
+            projectilePool.GetPooledObject();
             //if (projectile) Instantiate(projectile, muzzlePosition.position, Quaternion.LookRotation(muzzlePosition.forward));
         }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 namespace WheelApps {
@@ -50,6 +49,7 @@ namespace WheelApps {
             this.pooledGO = pooledGO;
             this.parentGO = parentGO;
             
+            pool.Clear();
             for (var i = 0; i < objectsAmount; i++) {
                 var go = InstantiateObject(pooledGO, parentGO); 
                 pool.Add(go);
@@ -76,8 +76,8 @@ namespace WheelApps {
         
         public virtual IEnumerator Utilize(GameObject pooledGO) {
             yield return new WaitForSeconds(1);
-            pooledGO.transform.SetPositionAndRotation(parentGO.transform.position, parentGO.transform.rotation);
             pooledGO.gameObject.SetActive(false);
+            pooledGO.transform.SetPositionAndRotation(parentGO.transform.position, parentGO.transform.rotation);
         }
         #endregion
     }

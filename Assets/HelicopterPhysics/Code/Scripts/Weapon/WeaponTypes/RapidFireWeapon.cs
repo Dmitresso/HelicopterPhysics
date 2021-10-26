@@ -2,6 +2,7 @@
 
 
 namespace WheelApps {
+    [RequireComponent(typeof(AdvancedProjectilePool))]
     public class RapidFireWeapon : BaseWeapon {
         #region Variables
         [Header("Rapid Fire Properties")]
@@ -10,6 +11,7 @@ namespace WheelApps {
         #endregion
 
 
+        
         #region Builtin Methods
         
         #endregion

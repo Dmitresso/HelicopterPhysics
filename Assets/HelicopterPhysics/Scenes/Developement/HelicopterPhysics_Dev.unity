@@ -363,6 +363,11 @@ Transform:
   m_Father: {fileID: 1969732461}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &893151778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8624300751259620494, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+  m_PrefabInstance: {fileID: 8624300750247992796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1191147480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8624300751304062150, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
@@ -1151,6 +1156,14 @@ PrefabInstance:
       propertyPath: preinstanscedProjectiles.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2848093505082047691, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: parentGO
+      value: 
+      objectReference: {fileID: 893151778}
+    - target: {fileID: 2848093505082047691, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: pooledGO
+      value: 
+      objectReference: {fileID: 1455275906537712652, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
     - target: {fileID: 4431946289483856180, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -1363,6 +1376,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5357639561069313902, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: parentGO
+      value: 
+      objectReference: {fileID: 704275687}
+    - target: {fileID: 5357639561069313902, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: pooledGO
+      value: 
+      objectReference: {fileID: 1455275906537712652, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
     - target: {fileID: 6770112449391005673, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
       propertyPath: bankAngle
       value: 25
@@ -1407,6 +1428,10 @@ PrefabInstance:
       propertyPath: pooledGO
       value: 
       objectReference: {fileID: 1455275906537712652, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
+    - target: {fileID: 7387666551711663974, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
+      propertyPath: objectScaleMultiplier
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8624300750183713554, guid: aa695de82f1578f4292abd6d017273dc, type: 3}
       propertyPath: m_IsActive
       value: 1
