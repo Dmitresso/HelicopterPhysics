@@ -488,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   lookAtTarget: {fileID: 0}
-  cockpitPosition: {fileID: 5231865903120400021}
+  cockpitPosition: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   fov: 55
 --- !u!1 &5231865903267476070
