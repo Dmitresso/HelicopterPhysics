@@ -18,6 +18,7 @@ namespace WheelApps {
 
         [Header("Input Events")]
         public UnityEvent onCameraButtonPressed = new UnityEvent();
+        public UnityEvent onHelpButtonPressed = new UnityEvent();
 
         
         
@@ -28,7 +29,7 @@ namespace WheelApps {
 
 
         #region Properties
-                private float throttle;
+        private float throttle;
         public float Throttle => throttle;
         
         private float collective;        
@@ -49,8 +50,11 @@ namespace WheelApps {
         private bool cameraButton;
         public bool CameraButton => cameraButton;
         
-        private bool fire;
-        public bool Fire => fire;
+        private bool fireButton;
+        public bool FireButton => fireButton;
+
+        private bool helpButton;
+        public bool HelpButton => helpButton;
         #endregion
         
         
@@ -73,7 +77,8 @@ namespace WheelApps {
                     stickyThrottle = keyboardInput.StickyThrottle; 
                     stickyCollective = keyboardInput.StickyCollective;
                     cameraButton = keyboardInput.CameraButton;
-                    fire = keyboardInput.Fire;
+                    fireButton = keyboardInput.FireButton;
+                    helpButton = keyboardInput.HelpButton;
                     break;
                 case InputType.Xbox:
                     throttle = xboxInput.RawThrottle;
@@ -83,13 +88,15 @@ namespace WheelApps {
                     stickyThrottle = xboxInput.StickyThrottle;
                     stickyCollective = xboxInput.StickyCollective;
                     cameraButton = xboxInput.CameraButton;
-                    fire = xboxInput.Fire;
+                    fireButton = xboxInput.FireButton;
+                    helpButton = xboxInput.HelpButton;
                     break;
                 case InputType.Mobile:
                     break;
             }
 
             if (cameraButton) onCameraButtonPressed?.Invoke();
+            if (helpButton) onHelpButtonPressed?.Invoke();
         }
         #endregion
 
@@ -106,6 +113,8 @@ namespace WheelApps {
                 case InputType.Xbox:
                     xboxInput.enabled = true;
                     keyboardInput.enabled = false;
+                    break;
+                case InputType.Mobile:
                     break;
             }
         }

@@ -9,7 +9,7 @@ namespace WheelApps {
         #region Variables
 
         public Button r22Button, hueyButton;
-        public GameObject r22h, r22cm, hh, hcm;
+        public GameObject r22h, r22cm, hh, hcm, help;
         public float fadeTime = 2f;
 
         private CanvasGroup canvasGroup;
@@ -20,7 +20,6 @@ namespace WheelApps {
 
 
         #region Builtin Methods
-
         private void Start() {
             canvasGroup = GetComponent<CanvasGroup>();
             r22Button.onClick.AddListener(delegate { HelicopterChooseButtonListener(0); });
@@ -34,9 +33,9 @@ namespace WheelApps {
             canvasGroup.alpha = Mathf.Lerp(0, 1, fadeTime);
             if (fadeTime > 0) return;
             fade = false;
+            help.gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
-
         #endregion
 
 

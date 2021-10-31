@@ -1108,9 +1108,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4431946289638040240}
   - component: {fileID: 4431946289638040244}
+  - component: {fileID: 4431946289638040247}
   - component: {fileID: 4431946289638040241}
   - component: {fileID: 4431946289638040246}
-  - component: {fileID: 4431946289638040247}
   - component: {fileID: 4431946289638040245}
   - component: {fileID: 6770112449391005673}
   m_Layer: 0
@@ -1158,34 +1158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4431946289638040241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4431946289638040250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a872b4f538a8a4da90b5fafa187607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camButton: 99
-  fireButton: 32
---- !u!114 &4431946289638040246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4431946289638040250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81b77087cdef4e179b53484ae218e1f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camButton: 99
-  fireButton: 32
 --- !u!114 &4431946289638040247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,6 +1186,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHelpButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4431946289638040241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431946289638040250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a872b4f538a8a4da90b5fafa187607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraButton: 99
+  fireButton: 32
+  helpButton: 104
+  exitButton: 27
+--- !u!114 &4431946289638040246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431946289638040250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b77087cdef4e179b53484ae218e1f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraButton: 99
+  fireButton: 32
+  helpButton: 104
+  exitButton: 27
 --- !u!114 &4431946289638040245
 MonoBehaviour:
   m_ObjectHideFlags: 0

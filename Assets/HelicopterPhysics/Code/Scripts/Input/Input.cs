@@ -3,8 +3,10 @@
 
 namespace WheelApps {
     public struct Input {
+        public static KeyCode exitButton = KeyCode.Escape;
         public static KeyCode cameraButton = KeyCode.C;
         public static KeyCode fireButton = KeyCode.Space;
+        public static KeyCode helpButton = KeyCode.H;
         
         public const string Horizontal = "Horizontal";
         public const string Vertical = "Vertical";

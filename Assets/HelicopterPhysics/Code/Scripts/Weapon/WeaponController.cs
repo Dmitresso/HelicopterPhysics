@@ -24,7 +24,7 @@ namespace WheelApps {
 
         #region Custom Methods
         public void UpdateWeapons(InputController input) {
-            if (!input.Fire || !fireAllowed) return;
+            if (!input.FireButton || !fireAllowed) return;
             if (weapons.Count <= 0) return;
             foreach (var weapon in weapons) weapon.FireWeapon();
         }

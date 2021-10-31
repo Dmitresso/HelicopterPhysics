@@ -1,15 +1,5 @@
 ﻿namespace WheelApps {
     public class XboxInput : KeyboardInput {
-        #region Variables
-        #endregion
-        
-
-        
-        #region Builtin Methods
-        #endregion
-
-        
-
         #region Custom Methods
         protected override void HandleThrottle() {
             rawThrottle = UnityEngine.Input.GetAxis(Input.XboxThrottleUp) -
@@ -34,12 +24,12 @@
         
         
         protected override void HandleCameraButton() {
-            cameraButton = UnityEngine.Input.GetButtonDown(Input.XboxCameraButton);
+            cameraButtonB = UnityEngine.Input.GetButtonDown(Input.XboxCameraButton);
         }
 
 
         protected override void HandleFireButton() {
-            fire = UnityEngine.Input.GetButtonDown(Input.XboxFireButton);
+            fireButtonB = UnityEngine.Input.GetButtonDown(Input.XboxFireButton);
         }
         #endregion
     }

@@ -5,8 +5,10 @@ namespace WheelApps {
     public class KeyboardInput : BaseHelicopterInput {
         #region Variables
         [Header("Camera Input Properties")]
-        public KeyCode camButton = Input.cameraButton;
+        public KeyCode cameraButton = Input.cameraButton;
         public KeyCode fireButton = Input.fireButton;
+        public KeyCode helpButton = Input.helpButton;
+        public KeyCode exitButton = Input.exitButton;
         #endregion
 
 
@@ -30,20 +32,18 @@ namespace WheelApps {
         protected float stickyCollective;
         public float StickyCollective => stickyCollective;
 
-        protected bool cameraButton;
-        public bool CameraButton => cameraButton;
+        protected bool cameraButtonB;
+        public bool CameraButton => cameraButtonB;
 
-        protected bool fire;
-        public bool Fire => fire;
+        protected bool fireButtonB;
+        public bool FireButton => fireButtonB;
+
+        protected bool helpButtonB;
+        public bool HelpButton => helpButtonB;
         #endregion
         
         
         
-        #region Builtin Methods
-        #endregion
-
-
-
         #region Custom Methods
         protected override void HandleInputs() {
             base.HandleInputs();
@@ -55,6 +55,8 @@ namespace WheelApps {
             HandleStickyCollective();
             HandleCameraButton();
             HandleFireButton();
+            HandleHelpButton();
+            HandleExitButton();
             
             ClampInputs();
         }
@@ -102,12 +104,22 @@ namespace WheelApps {
 
         
         protected virtual void HandleCameraButton() {
-            cameraButton = UnityEngine.Input.GetKeyDown(camButton);
+            cameraButtonB = UnityEngine.Input.GetKeyDown(cameraButton);
         }
 
         
         protected virtual void HandleFireButton() {
-            fire = UnityEngine.Input.GetKey(Input.fireButton);
+            fireButtonB = UnityEngine.Input.GetKey(fireButton);
+        }
+
+
+        protected virtual void HandleHelpButton() {
+            helpButtonB = UnityEngine.Input.GetKeyDown(helpButton);
+        }
+
+
+        protected virtual void HandleExitButton() {
+            if (UnityEngine.Input.GetKeyDown(exitButton)) Application.Quit();
         }
         #endregion
     }
