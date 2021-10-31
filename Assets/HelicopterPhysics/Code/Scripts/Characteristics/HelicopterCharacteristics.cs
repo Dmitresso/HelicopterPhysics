@@ -59,8 +59,8 @@ namespace WheelApps {
             var finalCyclicForce = cyclicForce * cyclicForceMultiplier *
                                    Vector3.ClampMagnitude(forwardVector + rightVector, 1f);
 
-            Debug.DrawRay(transform.position, finalCyclicForce, Color.green);
-
+            // Debug.DrawRay(transform.position, finalCyclicForce, Color.green);
+ 
             rb.AddForce(finalCyclicForce, ForceMode.Force);
         }
 

@@ -2135,6 +2135,7 @@ GameObject:
   - component: {fileID: 4454697334400305839}
   - component: {fileID: 4432747540520174561}
   - component: {fileID: 4432747540520174560}
+  - component: {fileID: 4670533808434039436}
   m_Layer: 0
   m_Name: Nose_Gun_GRP
   m_TagString: Untagged
@@ -2322,6 +2323,25 @@ MonoBehaviour:
   fireClip: {fileID: 8300000, guid: 86c6a86b7a24a924588db0be475c813f, type: 3}
   fireRate: 0.15
   lastFireTime: 0
+--- !u!114 &4670533808434039436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432747540520174567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aba64647f1d443980c0e347928be39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  utilizeDistance: 100
+  size: 10
+  expandable: 1
+  utilizeInGet: 1
+  parentGO: {fileID: 8624300750183713554}
+  pooledGO: {fileID: -8782709562912931488, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
+  calculateOptimalPoolSize: 1
 --- !u!1 &4432761020541239649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,6 +2977,7 @@ GameObject:
   - component: {fileID: 4455677804248750637}
   - component: {fileID: 4433029571256606725}
   - component: {fileID: 4433029571256606724}
+  - component: {fileID: 7980343996721565967}
   m_Layer: 0
   m_Name: R_Node_Machinegun_GRP
   m_TagString: Untagged
@@ -3148,6 +3169,25 @@ MonoBehaviour:
   barrelGO: {fileID: 1104771265644042131}
   rotationSpeed: 10
   slowDownSpeed: 2
+--- !u!114 &7980343996721565967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433029571256606731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aba64647f1d443980c0e347928be39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  utilizeDistance: 100
+  size: 10
+  expandable: 1
+  utilizeInGet: 1
+  parentGO: {fileID: 8624300751259620494}
+  pooledGO: {fileID: -8782709562912931488, guid: 843cabbe542550b48b8b6bfd18fef289, type: 3}
+  calculateOptimalPoolSize: 1
 --- !u!1 &4433039524535122333
 GameObject:
   m_ObjectHideFlags: 0
